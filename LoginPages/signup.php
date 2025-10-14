@@ -1,31 +1,38 @@
 <?php
 session_start();
-
 include("connection.php");
-include("functions.php");
 
+// Load WordPress functions
+require_once('../../wordpress/wp-load.php'); // adjust path
 
-if($_SERVER['REQUEST_METHOD'] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $username = $_POST['StdId'];
+    $password = $_POST['Password'];
+    $email = $_POST['Email']; // optional, if you have an email field
 
-$username = $_POST['StdId'];
-$password = $_POST['Password'];
+    if (!empty($username) && !empty($password)) {
 
-if(!empty($username) && !empty($password)) {
+        if (username_exists($username) || (!empty($email) && email_exists($email))) {
+            echo "Username or email already exists.";
+        } else {
+            // Create WordPress user
+            $user_id = wp_create_user($username, $password, $email);
 
-  $id = random_num(20);
-  $query = "insert into student (id, StdId , Password) values ('$id','$username' , '$password')";
+            if (is_wp_error($user_id)) {
+                echo "Error: " . $user_id->get_error_message();
+            } else {
+                $_SESSION['Id'] = $user_id;
+                header("Location: login.php");
+                exit;
+            }
+        }
 
-  mysqli_query($con,$query);
-
-  header("Location:login.php");
-  die;
-
-} else {
-  echo "Please Enter Valid Info";
+    } else {
+        echo "Please Enter Valid Info";
+    }
 }
-}
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="ar">

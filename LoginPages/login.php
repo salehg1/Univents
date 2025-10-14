@@ -1,47 +1,37 @@
 <?php
-
 session_start();
-
 include("connection.php");
-include("functions.php");
 
 
-if($_SERVER['REQUEST_METHOD'] == "POST") {
+require_once('../../wordpress/wp-load.php'); 
 
-$username = $_POST['StdId'];
-$password = $_POST['Password'];
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $username = $_POST['StdId'];
+    $password = $_POST['Password'];
 
-if(!empty($username) && !empty($password)) {
+    if (!empty($username) && !empty($password)) {
 
-  $query = "select * from student where StdId = '$username' limit 1";
-
-  $result = mysqli_query($con,$query);
-
-  if($result) {
-
-    if($result && mysqli_num_rows ($result) > 0) {
-
-        $user_data = mysqli_fetch_assoc($result);
+        global $wpdb;
         
-        if($user_data['Password'] === $password) {
+        $user = $wpdb->get_row( $wpdb->prepare(
+            "SELECT * FROM $wpdb->users WHERE user_login = %s", $username
+        ) );
+
+        if ($user && wp_check_password($password, $user->user_pass, $user->ID)) {
             
-            $_SESSION['Id'] = $user_data['Id'];
-            header("Location:index.php");
-            die;
-
+            $_SESSION['Id'] = $user->ID;
+            header("Location: index.php");
+            exit;
+        } else {
+            echo "Wrong Username or Password";
         }
-        
+
+    } else {
+        echo "Please Enter Valid Info";
     }
-    
-  }
-  echo "Wrong Username or Password";
-
-} else {
-  echo "Please Enter Valid Info";
 }
-}
-
 ?>
+
 
 
 <!DOCTYPE html>
