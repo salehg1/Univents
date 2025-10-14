@@ -8,8 +8,8 @@
 :root {
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --primary-color: #004080;
-    --secondary-color: #000000;
-    --background-color: #f5f5f5;
+    --secondary-color: #1a8a5b;
+    --background-color: #ffffff;
     --text-color: #333;
     --white: #ffffff;
 }
@@ -36,14 +36,7 @@ body {
     flex-wrap: wrap;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-.navbar button{
-  width: 8rem;
-  height: 2rem;
-  font-size: 20px;
-  padding: 0;
-  color: black;
-  background-color: white;
-}
+
 
 .logo {
     width: 120px;
@@ -52,37 +45,51 @@ body {
 
 /* Notification Section */
 .Notificaion-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin: 40px 0;
-    flex-wrap: wrap;
+  width: 55%;
+  margin: 60px auto;
+  position: relative;
+  border-radius: 20px;
 }
 
-.Notificaion-slide img,
-.carousel-slide img {
-    width: 100%;
-    max-width: 80%;
-    border-radius: 15px;
-    display: block;
-    margin: 0 auto;
+.Notificaion-slide img {
+  width: 100%;
+  aspect-ratio: 3 / 1.5; 
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
 }
+
 
 .arrow {
-    font-size: 28px;
-    color: var(--primary-color);
-    background-color: var(--white);
-    width: 50px;
-    padding: 10px;
-    border-radius: 100%;
-    margin: 5 auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #000;
+  background: #fff;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
 }
 
-/* Arrow hover fix */
+.arrow.left {
+  left: -35px;
+}
+
+.arrow.right {
+  right: -35px;
+}
+
 .arrow:hover {
-    background-color: var(--secondary-color);
-    color: var(--white);
+  background: #e4e4e4;
 }
 
 /* Section Heading */
@@ -139,7 +146,7 @@ button {
 
 button:hover {
     background-color: #000000;
-    color: white;
+
 }
 
 .show-all {
