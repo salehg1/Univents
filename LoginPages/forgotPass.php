@@ -1,67 +1,43 @@
 <?php
-//go to line 29 to 32
+session_start();
+include("connection.php");
+require_once('../../wordpress/wp-load.php');
+
+// هنا تحط منطق إعادة التعيين لاحقاً (إرسال رمز / تحقق)
 ?>
 
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>إعادة تعيين كلمة المرور</title>
-  <link rel="stylesheet" href="login.css"/>
+  <link rel="stylesheet" href="login.css"/> <!-- نستخدم نفس ملف التنسيق -->
 </head>
+
 <body>
+  <div class="login-wrapper">
+    <form class="login-form" method="post">
+      <div class="logo-section">
+        <img src="DF.png" alt="رمز الحماية">  <!-- استبدل بصورة القفل عندك -->
+        <div class="divider"></div>
+        <img src="logo-taibah.png" alt="شعار الجامعة">
+      </div>
 
-  <div class="modal-overlay" style="display: block;"></div>
-  <div class="modal-content" style="display: block;">
-    <button class="butto" onclick="window.location.href='./login.php'"><span class="X">&times;</span></button>
+      <h2 class="login-title">إعادة تعيين كلمة المرور</h2>
+      <p class="welcome-text">سيتم إرسال رمز تأكيد مكون من 4 أرقام إلى رقم الجوال المدخل</p>
 
-    <div class="container active">
-      <form class="login-form">
-        <div class="images-container">
-          <img src="DF.png" alt="Logo">
-          <div class="separator"></div>
-          <img src="logo-taibah.png" alt="Logo">
-        </div>
+      <input type="text" name="phone" placeholder="أدخل رقم الجوال">
+      <input type="text" name="student_id" placeholder="أدخل رقمك الجامعي">
+      <input type="password" name="new_pass" placeholder="أدخل كلمة المرور الجديدة">
+      <input type="password" name="confirm_pass" placeholder="أعد إدخال كلمة المرور الجديدة">
 
-        <h2>إعادة تعيين كلمة المرور</h2>
-        <h4>سيتم إرسال رمز تأكيد مكون من 4 أرقام إلى رقم الجوال المدخل</h4>
-        <input type="text" name="phonenumber"  placeholder="📞 أدخل رقم الجوال" required>
-        <input type="text" name="StdId"  placeholder="ادخل رقمك الجامعي" required>
-        <input type="password" name="password"  placeholder="🔒 أدخل كلمة المرور الجديدة" required>
-        <input type="password" name="Re-password"  placeholder="🔒 إعادة إدخال كلمة المرور" required>
+      <button type="submit" class="btn-login">إرسال</button>
 
-        <button class="btn-login" type="submit">إرسال</button>
-
-        <div class="links">
-          <a href="login.php">عودة لتسجيل الدخول</a>
-        </div>
-      </form>
-    </div>
+      <div class="links">
+        <a href="login.php">عودة لتسجيل الدخول</a>
+      </div>
+    </form>
   </div>
-
 </body>
-
-<script>
-
-    document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('forgotForm');
-  const errorNotification = document.getElementById('errorNotification');
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const email = form.querySelector('#email').value.trim();
-
-    if (!email) {
-      errorNotification.classList.remove('hidden');
-      errorNotification.textContent = 'يرجى إدخال البريد الإلكتروني.';
-    } else {
-      console.log('Password reset requested for:', email);
-      // Send reset request here
-    }
-  });
-});
-
-    </script>
 </html>

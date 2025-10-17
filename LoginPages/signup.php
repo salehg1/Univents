@@ -1,90 +1,70 @@
 <?php
 session_start();
 include("connection.php");
-
-// Load WordPress functions
-require_once('../../wordpress/wp-load.php'); // adjust path
+require_once('../../wordpress/wp-load.php');
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $username = $_POST['StdId'];
-    $password = $_POST['Password'];
-    $email = $_POST['Email']; // optional, if you have an email field
+    $username  = $_POST['username'] ?? '';
+    $email     = $_POST['email'] ?? '';
+    $password  = $_POST['password'] ?? '';
+    $confirm   = $_POST['confirm'] ?? '';
 
-    if (!empty($username) && !empty($password)) {
+    if (!empty($username) && !empty($email) && !empty($password) && ($password === $confirm)) {
+        $userdata = array(
+            'user_login' => $username,
+            'user_pass'  => $password,
+            'user_email' => $email,
+        );
 
-        if (username_exists($username) || (!empty($email) && email_exists($email))) {
-            echo "Username or email already exists.";
+        $user_id = wp_insert_user($userdata);
+
+        if (!is_wp_error($user_id)) {
+            header("Location: login.php");
+            exit;
         } else {
-            // Create WordPress user
-            $user_id = wp_create_user($username, $password, $email);
-
-            if (is_wp_error($user_id)) {
-                echo "Error: " . $user_id->get_error_message();
-            } else {
-                $_SESSION['Id'] = $user_id;
-                header("Location: login.php");
-                exit;
-            }
+            $error = "حدث خطأ أثناء إنشاء الحساب";
         }
-
     } else {
-        echo "Please Enter Valid Info";
+        $error = "يرجى إدخال جميع البيانات والتأكد من تطابق كلمات المرور";
     }
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>إنشاء حساب</title>
-  <link rel="stylesheet" href="login.css"/>
+  <link rel="stylesheet" href="login.css"/> <!-- نستخدم نفس ملف التنسيق -->
 </head>
+
 <body>
+  <div class="login-wrapper">
+    <form class="login-form" method="post">
+      <div class="logo-section">
+        <img src="DF.png" alt="رمز التسجيل"> <!-- استبدل بصورة مناسبة -->
+        <div class="divider"></div>
+        <img src="logo-taibah.png" alt="شعار الجامعة">
+      </div>
+      <h2 class="login-title">إنشاء حساب جديد</h2>
+      <p class="welcome-text">يرجى تعبئة البيانات التالية لإنشاء حسابك الجامعي</p>
 
-  <div class="modal-overlay" style="display: block;"></div>
-  <div class="modal-content" style="display: block;">
-    <button class="butto" onclick="window.location.href='login.html'"><span class="X">&times;</span></button>
+      <input type="text" name="username" placeholder="اسم المستخدم">
+      <input type="email" name="email" placeholder="البريد الإلكتروني الجامعي">
+      <input type="password" name="password" placeholder="كلمة المرور">
+      <input type="password" name="confirm" placeholder="تأكيد كلمة المرور">
 
-    <div class="container active">
-      <form class="login-form" id="signupForm" method="post">
-        <div class="images-container">
-          <img src="DF.png" alt="Logo">
-          <div class="separator"></div>
-          <img src="logo-taibah.png" alt="Logo">
-        </div>
+      <button type="submit" class="btn-login">إنشاء الحساب</button>
 
-        <h2>إنشاء حساب</h2>
-        <h4>سيتم إرسال رمز مكون من 4 أرقام إلى رقم الجوال للتأكيد</h4>
-        
-        <input type="text" id="username" name="username" placeholder="اسم المستتخدم" required>
-        <input type="text" id="nnnnnuuuuulll" name="firstName" placeholder="الاسم الاول" required>
-        <input type="text" id="nnuuuuuuuulll" name="lastName" placeholder="الاسم الاخير" required>
-        <input type="text" name="StdId" placeholder="رقمك الجامعي" required>
-        <input type="email" name="Email" placeholder="البريد الالكتروني" required>
-        <input type="text" name="PhoneNumber"  placeholder="📞 أدخل رقم الجوال" required>
-        <input type="password" name = "Password" id="signupPassword" placeholder="🔒 أدخل كلمة المرور الجديدة">
+      <?php if (!empty($error)): ?>
+        <div class="error-box"><?= $error ?></div>
+      <?php endif; ?>
 
-        <button class="btn-login" type="submit">إنشاء حساب</button>
-
-        <div class="links">
-          <a href="login.php">عودة لتسجيل الدخول</a>
-
-        </div>
-      </form>
-    </div>
+      <div class="links">
+        <a href="login.php">عودة لتسجيل الدخول</a>
+      </div>
+    </form>
   </div>
-
-  <!-- إشعارات -->
-  <div id="errorNotification" class="notifications-container hidden">
-    <!-- ... same as in login.html -->
-  </div>
-
 </body>
-
-
-
-    
 </html>

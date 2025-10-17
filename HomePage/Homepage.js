@@ -57,4 +57,19 @@ function toggleLanguage() {
     // تحديث لمربع البحث
     document.getElementById('search-input').placeholder = translations[currentLang].searchPlaceholder;
 }
+ //------------------------------------------------صفحه عائمه--------------------------------------------------
+function openLoginModal() {
+  document.getElementById("loginModalOverlay").style.display = "flex";
+}
 
+function closeLoginModal() {
+  document.getElementById("loginModalOverlay").style.display = "none";
+}
+
+// إغلاق النافذة عند الضغط على الخلفية
+document.addEventListener("click", function (e) {
+  const overlay = document.getElementById("loginModalOverlay");
+  if (e.target === overlay) {
+    closeLoginModal();
+  }
+});
