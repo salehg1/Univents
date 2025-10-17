@@ -197,6 +197,7 @@ button {
 
 button:hover {
     background-color: #000000;
+    color: #ffffff;
 
 }
 
@@ -279,6 +280,9 @@ footer {
     border-radius: 40px;
     transition-duration: 0.3s;
 
+}
+.Btn:hover .text {
+    color: #ffffff; 
 }
   
   .Btn:hover .sign {
