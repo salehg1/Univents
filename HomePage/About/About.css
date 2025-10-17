@@ -82,20 +82,5 @@ header h1 {
 
 /* Buttons */
 button {
-  background-color: var(--secondary-color);
-  color: black;
-  border: none;
-  border-radius: 20px;
-  width: 8rem;
-  height: 2rem;
-  font-size: 1.2rem;
-
-  margin: 0 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #000000;
-  color: white;
+ align-items: center; 
 }
