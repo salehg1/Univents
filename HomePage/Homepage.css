@@ -13,7 +13,7 @@
     --text-color: #333;
     --white: #ffffff;
 }
-\/* Navbar */
+/* Navbar */
 .navbar {
     background-color: var(--primary-color);
     display: flex;
@@ -34,6 +34,25 @@
   color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
 }
+
+button {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+button:hover {
+    background-color: #000000;
+    color: #ffffff;
+
+}
+
 
 body {
     font-family: var(--font-family);
@@ -183,23 +202,7 @@ body {
   align-items: center;
 }
 
-/* Buttons */
-button {
-    background-color: var(--secondary-color);
-    color: var(--white);
-    border: none;
-    border-radius: 20px;
-    padding: 8px 20px;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
 
-button:hover {
-    background-color: #000000;
-    color: #ffffff;
-
-}
 
 .show-all {
     float: left;

@@ -22,6 +22,32 @@ body {
   --white: #ffffff;
 }
 
+button {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.navbar button{
+  width: 8rem;
+  height: 2rem;
+  font-size: 20px;
+  padding: 0;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+}
+
+button:hover {
+    background-color: #000000;
+    color: #ffffff;
+
+}
+
 header {
   background: var(--primary-color);
   padding: 40px 0;
@@ -78,9 +104,4 @@ header h1 {
 .logo {
   width: 120px;
   height: auto;
-}
-
-/* Buttons */
-button {
- align-items: center; 
 }
