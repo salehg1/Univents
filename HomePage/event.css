@@ -95,3 +95,24 @@ h2 {
   box-shadow: 0 8px 18px rgba(39, 174, 96, 0.4);
 }
 
+#back-btn {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 35px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 20px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(231, 76, 60, 0.3);
+  transition: all 0.3s ease;
+}
+
+#back-btn:hover {
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(192, 57, 43, 0.4);
+}
+
