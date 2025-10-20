@@ -2,7 +2,6 @@
 const translations = {
   en: { 
     about: "About",
-    notification: "Notification - Announcement",
     events: "Events Section",
     activities: "Activities",
     colleges: "Colleges Categories Event Section",
@@ -13,10 +12,9 @@ const translations = {
   },
   ar: {
     about: "عن الصفحة",
-    notification: "الإشعارات - الإعلانات",
-    events: "قسم الأحداث",
-    activities: "الفعاليات",
-    colleges: "أحداث الكليات",
+    events: " قسم الفعاليات",
+    activities: " قسم الأنشطة",
+    colleges: " قسم فعاليات الكليات",
     showAll: "عرض الجميع",
     searchPlaceholder: "ابحث هنا...",
     signUp: "تسجيل الدخول",
@@ -30,6 +28,7 @@ function toggleLanguage() {
   // تبديل اللغة
   currentLang = currentLang === "ar" ? "en" : "ar";
   document.documentElement.setAttribute("lang", currentLang);
+  document.body.dir = currentLang === "ar" ? "rtl" : "ltr";
 
   // تحديث نص الزر En/عربي
   const langButton = document.querySelector('button[onclick="toggleLanguage()"]');
@@ -47,10 +46,9 @@ function toggleLanguage() {
 
   // تحديث الأقسام (Events / Activities / Colleges)
   const sections = document.querySelectorAll('.section span');
-  if (sections[0]) sections[0].textContent = translations[currentLang].notification;
-  if (sections[1]) sections[1].textContent = translations[currentLang].events;
-  if (sections[2]) sections[2].textContent = translations[currentLang].activities;
-  if (sections[3]) sections[3].textContent = translations[currentLang].colleges;
+  if (sections[0]) sections[0].textContent = translations[currentLang].events;
+  if (sections[1]) sections[1].textContent = translations[currentLang].activities;
+  if (sections[2]) sections[2].textContent = translations[currentLang].colleges;
 
   // تحديث أزرار "Show All"
   document.querySelectorAll('.show-all').forEach(button => {
@@ -62,7 +60,7 @@ function toggleLanguage() {
   if (searchInput) searchInput.placeholder = translations[currentLang].searchPlaceholder;
 }
 
- //------------------------------------------------صفحه عائمه--------------------------------------------------
+//------------------------------------------------صفحه عائمه--------------------------------------------------
 function openLoginModal() {
   document.getElementById("loginModalOverlay").style.display = "flex";
 }
@@ -78,4 +76,3 @@ document.addEventListener("click", function (e) {
     closeLoginModal();
   }
 });
-
