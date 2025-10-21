@@ -40,8 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <form class="login-form" method="post">
       <div class="logo-section">
         <img src="HG.gif" alt="شعار النظام">
-        <div class="divider"></div>
-        <img src="logo-taibah.png" alt="شعار الجامعة">
+        <img src="taibah_logo.png" alt="شعار الجامعة">
       </div>
 
       <h2 class="login-title">تسجيل الدخول</h2>

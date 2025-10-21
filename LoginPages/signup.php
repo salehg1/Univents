@@ -44,8 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <form class="login-form" method="post">
       <div class="logo-section">
         <img src="DF.png" alt="رمز التسجيل"> <!-- استبدل بصورة مناسبة -->
-        <div class="divider"></div>
-        <img src="logo-taibah.png" alt="شعار الجامعة">
+        <img src="taibah_logo.png" alt="شعار الجامعة">
       </div>
       <h2 class="login-title">إنشاء حساب جديد</h2>
       <p class="welcome-text">يرجى تعبئة البيانات التالية لإنشاء حسابك الجامعي</p>

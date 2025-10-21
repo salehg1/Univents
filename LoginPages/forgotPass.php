@@ -20,8 +20,7 @@ require_once('../../wordpress/wp-load.php');
     <form class="login-form" method="post">
       <div class="logo-section">
         <img src="DF.png" alt="رمز الحماية">  <!-- استبدل بصورة القفل عندك -->
-        <div class="divider"></div>
-        <img src="logo-taibah.png" alt="شعار الجامعة">
+        <img src="taibah_logo.png" alt="شعار الجامعة">
       </div>
 
       <h2 class="login-title">إعادة تعيين كلمة المرور</h2>
