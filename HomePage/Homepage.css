@@ -99,6 +99,17 @@ body {
   border-radius: 20px;
 }
 
+.Notificaion-slide .slide {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.Notificaion-slide .slide.active {
+  display: block;
+  opacity: 1;
+}
+
 
 .arrow {
   position: absolute;
