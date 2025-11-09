@@ -40,15 +40,8 @@ body {
 }
 
 .logo-section img {
-  width: 65px;
+  width: 30%;
   height: auto;
-}
-
-.divider {
-  width: 2px;
-  height: 35px;
-  background-color: #000;
-  margin: 0 15px;
 }
 
 /* النصوص */
