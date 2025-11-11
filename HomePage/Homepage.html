@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="Homepage.css" />
     <!-- ملف css -->
 <script src="Homepage.js" defer></script>
+<script src="../Settings/lang.js" defer></script>
 
     <!-- ملف js -->
   </head>
@@ -26,19 +27,17 @@
         onclick="window.location.href = '../HomePage/About/About.html'"
         target="_blank"
       >
-        <button id="about-btn">About</button>
+        <button id="about-btn" data-translate="about">About</button>
       </a>
 
-      <!--زر تحويل الغه-->
-      <button onclick="toggleLanguage()">En/عربي</button>
-
-      <!--البروفايل-->
+      <!--الاعدادات-->
       <a href="الربط هنا" target="_blank">
         <button
           id="profile-btn"
           onclick="window.location.href = '../Settings/main_settings/Settings.html'"
+          data-translate="settings"
         >
-          Profile
+          settings
         </button>
       </a>
 
@@ -56,35 +55,38 @@
         ></path>
       </svg>
     </div>
-    <div class="text">Log in</div>
+    <div class="text" data-translate="signUp">Log in</div>
   </button>
 </div>
 
     </div>
 
-    <!------------------------------------------------------------------------------------------------------------------------------>
+    <!------------------------------------------------------------------------------------------------------------------------------->
 <!-- قسم الإشعارات -->
 <div class="Notificaion-container">
   <!-- السهم الأيسر -->
   <button class="arrow left" onclick="prevSlide()">🡰</button>
 
-  <div class="Notificaion">
-    <div id="Notificaion" class="Notificaion-slide">
-      <!-- أضف صورك هنا -->
-
+  <div class="Notificaion-slide">
+    <!-- الصورة الأولى -->
+    <div class="slide active">
       <a href="./Notificaion/Notificaion1.html">
-        <img src="./Notificaion/Notification1.png" alt="Notification 1" class="slide active" />
+        <img src="./Notificaion/Notification1.png" alt="Notification 1">
       </a>
+    </div>
 
+    <!-- الصورة الثانية -->
+    <div class="slide">
       <a href="./activities/activities1.html">
-        <img src="./activities/activity1.png" alt="Notification 2" class="slide active" />
+        <img src="./activities/activity1.png" alt="Notification 2">
       </a>
+    </div>
 
-        <a href="./event/event1.html">
-        <img src="./event/events1.png" alt="Notification 1" class="slide active" />
+    <!-- الصورة الثالثة -->
+    <div class="slide">
+      <a href="./event/event1.html">
+        <img src="./event/events1.png" alt="Notification 3">
       </a>
-
-      <!-- تقدر تضيف صور أكثر بنفس الطريقة -->
     </div>
   </div>
 
@@ -94,182 +96,183 @@
 
     <!------------------------------------------------------------------------------------------------------------------------------->
 
-    <!-- class عشان تصميم المستطيل الي في (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
-    <div class="container">
-      <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
-      <div class="section">
-        <!-- قسم الاحداث -->
-        <span>Events Section</span>
-        <!--زر عرض الجميع-->
-        <a href="./event/all-events.html">
-        <button class="show-all" onclick="showAll('events')">Show All</button>
-        </a>
-      </div>
+   <!-- class عشان تصميم المستطيل الي في (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
+<div class="container">
 
-      <!------------------------------------------------------------------------------------------------------------------------------->
+  <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
+  <div class="section">
+    <!-- قسم الاحداث -->
+    <span data-translate="events">Events Section</span>
+    <!--زر عرض الجميع-->
+    <a href="./event/all-events.html">
+      <button class="show-all" onclick="showAll('events')" data-translate="showAll">Show All</button>
+    </a>
+  </div>
 
-      <!-- class + صور قسم الاحداث-->
-      <div class="events-container">
-        <div class="event">
-          <!-- الصوره الاوله -->
-          <a href="./event/event1.html">
-          <img src="./event/events1.png" alt="event 1" />
-          </a>
-           <p class="desc title">Championship for the best player in Taiba</p>
-           <p class="desc date">20 October</p>
-        </div>
+  <!------------------------------------------------------------------------------------------------------------------------------->
 
-        <div class="event">
-          <!-- الصوره الثانيه -->
-          <a href="./event/event2.html">
-          <img src="./event/events2.png" alt="event 2" />
-          </a>
-          <p class="desc title">Community service to help people</p>
-          <p class="desc date">20 October</p>
-        </div>
-        <div class="event">
-          <!--الصوره الثالثه-->
-          <a href="./event/event3.html">
-          <img src="./event/events3.png" alt="event 3" />
-          </a>
-          <p class="desc title">Best Project Competition in Taiba</p>
-          <p class="desc date">20 October</p>
-        </div>
-
-      </div>
-      <!------------------------------------------------------------------------------------------------------------------------------->
-
-      <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
-      <div class="section">
-        <!-- الفعاليات-->
-        <span>Sports activities Section</span>
-        <!--زر عرض الجميع-->
-       <a href="./event/all-events.html">
-        <button class="show-all" onclick="showAll('events')">Show All</button>
-        </a>
-      </div>
-
-      <!--class + صور الفعاليات-->
-      <div class="Activities-container">
-        <div class="Activities">
-          <!-- الصوره الاوله -->
-          <a href="./activities/activities1.html">
-          <img src="./activities/activity1.png" alt="Activities 1" />
-          </a>
-          <p class="desc title">Taiba Running Championship</p>
-          <p class="desc date">20 October</p>
-        </div>
-
-        <div class="Activities">
-          <!-- الصوره الثانيه -->
-          <a href="./activities/activities2.html">
-          <img src="./activities/activity2.png" alt="Activities 2" />
-          </a>
-          <p class="desc title">Activiti the best cookr in taiba</p>
-          <p class="desc date">20 October</p>
-        </div>
-
-        <div class="Activities">
-          <!--الصوره الثالثه-->
-          <a href="./activities/activities3.html">
-          <img src="./activities/activity3.png" alt="Activities 3" />
-          </a>
-          <p class="desc title">Taiba University Public Swimming Championship</p>
-          <p class="desc date">20 October</p>
-        </div>
-      </div>
-
-      <!------------------------------------------------------------------------------------------------------------------------------->
-
-      <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
-      <div class="section">
-        <!--قسم النوادي الطلابيه -->
-        <span>Student event Section</span>
-        <!--زر عرض الجميع-->
-        <a href="./event/all-events.html">
-        <button class="show-all" onclick="showAll('events')">Show All</button>
-        </a>
-      </div>
-
-      <!-- class + صور -->
-      <div class="Colleg-container">
-        <div class="Colleg">
-          <!-- الصوره الاوله -->
-          <a href="./Student clubs/Student clubs 1.html">
-          <img src="  " alt="Colleg 1" />
-          </a>
-          <p class="desc title">Learning about engineering prevention</p>
-          <p class="desc date">20 October</p>
-        </div>
-
-        <div class="Colleg">
-          <!-- الصوره الثانيه -->
-          <a href="./Student clubs/Student clubs 2.html">
-          <img src="./Student clubs/student 2.png" alt="Colleg 2" />
-          </a>
-          <p class="desc title">Programming learning course</p>
-          <p class="desc date">20 October</p>
-        </div>
-
-        <div class="Colleg">
-          <!--الصوره الثالثه-->
-          <a href="./Student clubs/Student clubs 3.html">
-          <img src="  " alt="Colleg 3" />
-          </a>
-          <p class="desc title">How to become a skilled dentist</p>
-          <p class="desc date">20 October</p>
-        </div>
-      </div>
-
+  <!-- class + صور قسم الاحداث-->
+  <div class="events-container">
+    <div class="event">
+      <!-- الصوره الاوله -->
+      <a href="./event/event1.html">
+        <img src="./event/events1.png" alt="event 1" />
+      </a>
+      <p class="desc title">Championship for the best player in Taiba</p>
+      <p class="desc date">20 October</p>
     </div>
 
-      <!------------------------------------------------------------------------------------------------------------------------------->
-
-      <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
-      <div class="section">
-        <!-- احداث الكليه -->
-        <span>Colleges Categories Event Section</span>
-        <!--زر عرض الجميع-->
-        <a href="./event/all-events.html">
-        <button class="show-all" onclick="showAll('events')">Show All</button>
-        </a>
-      </div>
-
-      <!-- class + صور احداث الكليه-->
-      <div class="Colleg-container">
-        <div class="Colleg">
-          <!-- الصوره الاوله -->
-          <a href="./Colleg/Colleg1.html">
-          <img src="./Colleg/Collleg1.png" alt="Colleg 1" />
-          </a>
-          <p class="desc title">Learning about engineering prevention</p>
-          <p class="desc date">20 October</p>
-        </div>
-
-        <div class="Colleg">
-          <!-- الصوره الثانيه -->
-          <a href="./Colleg/Colleg2.html">
-          <img src="./Colleg/Collleg2.png" alt="Colleg 2" />
-          </a>
-          <p class="desc title">Programming learning course</p>
-          <p class="desc date">20 October</p>
-        </div>
-
-        <div class="Colleg">
-          <!--الصوره الثالثه-->
-          <a href="./Colleg/Colleg3.html">
-          <img src="./Colleg/Collleg3.png" alt="Colleg 3" />
-          </a>
-          <p class="desc title">How to become a skilled dentist</p>
-          <p class="desc date">20 October</p>
-        </div>
-      </div>
-
+    <div class="event">
+      <!-- الصوره الثانيه -->
+      <a href="./event/event2.html">
+        <img src="./event/events2.png" alt="event 2" />
+      </a>
+      <p class="desc title">Community service to help people</p>
+      <p class="desc date">20 October</p>
     </div>
+
+    <div class="event">
+      <!--الصوره الثالثه-->
+      <a href="./event/event3.html">
+        <img src="./event/events3.png" alt="event 3" />
+      </a>
+      <p class="desc title">Best Project Competition in Taiba</p>
+      <p class="desc date">20 October</p>
+    </div>
+  </div>
+
+  <!------------------------------------------------------------------------------------------------------------------------------->
+
+  <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
+  <div class="section">
+    <!-- الفعاليات-->
+    <span data-translate="activities">Sports activities Section</span>
+    <!--زر عرض الجميع-->
+    <a href="./event/all-events.html">
+      <button class="show-all" onclick="showAll('events')" data-translate="showAll">Show All</button>
+    </a>
+  </div>
+
+  <!--class + صور الفعاليات-->
+  <div class="Activities-container">
+    <div class="Activities">
+      <!-- الصوره الاوله -->
+      <a href="./activities/activities1.html">
+        <img src="./activities/activity1.png" alt="Activities 1" />
+      </a>
+      <p class="desc title">Taiba Running Championship</p>
+      <p class="desc date">20 October</p>
+    </div>
+
+    <div class="Activities">
+      <!-- الصوره الثانيه -->
+      <a href="./activities/activities2.html">
+        <img src="./activities/activity2.png" alt="Activities 2" />
+      </a>
+      <p class="desc title">Activiti the best cookr in taiba</p>
+      <p class="desc date">20 October</p>
+    </div>
+
+    <div class="Activities">
+      <!--الصوره الثالثه-->
+      <a href="./activities/activities3.html">
+        <img src="./activities/activity3.png" alt="Activities 3" />
+      </a>
+      <p class="desc title">Taiba University Public Swimming Championship</p>
+      <p class="desc date">20 October</p>
+    </div>
+  </div>
+
+  <!------------------------------------------------------------------------------------------------------------------------------->
+
+  <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
+  <div class="section">
+    <!--قسم النوادي الطلابيه -->
+    <span data-translate="student">Student event Section</span>
+    <!--زر عرض الجميع-->
+    <a href="./event/all-events.html">
+      <button class="show-all" onclick="showAll('events')" data-translate="showAll">Show All</button>
+    </a>
+  </div>
+
+  <!-- class + صور -->
+  <div class="Colleg-container">
+    <div class="Colleg">
+      <!-- الصوره الاوله -->
+      <a href="./Student clubs/Student clubs 1.html">
+        <img src=" " alt="Colleg 1" />
+      </a>
+      <p class="desc title">Learning about engineering prevention</p>
+      <p class="desc date">20 October</p>
+    </div>
+
+    <div class="Colleg">
+      <!-- الصوره الثانيه -->
+      <a href="./Student clubs/Student clubs 2.html">
+        <img src="./Student clubs/student 2.png" alt="Colleg 2" />
+      </a>
+      <p class="desc title">Programming learning course</p>
+      <p class="desc date">20 October</p>
+    </div>
+
+    <div class="Colleg">
+      <!--الصوره الثالثه-->
+      <a href="./Student clubs/Student clubs 3.html">
+        <img src=" " alt="Colleg 3" />
+      </a>
+      <p class="desc title">How to become a skilled dentist</p>
+      <p class="desc date">20 October</p>
+    </div>
+  </div>
+
+  <!------------------------------------------------------------------------------------------------------------------------------->
+
+  <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
+  <div class="section">
+    <!-- احداث الكليه -->
+    <span data-translate="colleges">Colleges Categories Event Section</span>
+    <!--زر عرض الجميع-->
+    <a href="./event/all-events.html">
+      <button class="show-all" onclick="showAll('events')" data-translate="showAll">Show All</button>
+    </a>
+  </div>
+
+  <!-- class + صور احداث الكليه-->
+  <div class="Colleg-container">
+    <div class="Colleg">
+      <!-- الصوره الاوله -->
+      <a href="./Colleg/Colleg1.html">
+        <img src="./Colleg/Collleg1.png" alt="Colleg 1" />
+      </a>
+      <p class="desc title">Learning about engineering prevention</p>
+      <p class="desc date">20 October</p>
+    </div>
+
+    <div class="Colleg">
+      <!-- الصوره الثانيه -->
+      <a href="./Colleg/Colleg2.html">
+        <img src="./Colleg/Collleg2.png" alt="Colleg 2" />
+      </a>
+      <p class="desc title">Programming learning course</p>
+      <p class="desc date">20 October</p>
+    </div>
+
+    <div class="Colleg">
+      <!--الصوره الثالثه-->
+      <a href="./Colleg/Colleg3.html">
+        <img src="./Colleg/Collleg3.png" alt="Colleg 3" />
+      </a>
+      <p class="desc title">How to become a skilled dentist</p>
+      <p class="desc date">20 October</p>
+    </div>
+  </div>
+
+</div>
+
     <!------------------------------------------------------------------------------------------------------------------------------->
 
     <footer>
-      <p>&copy; FS WebDev Univents</p>
+      <p data-translate="footer">&copy; FS WebDev Univents</p>
     </footer>
 
 <!-- نافذة تسجيل الدخول عائمه -->
@@ -292,7 +295,5 @@
   border-radius: 15px;
   border: none; ">
 </iframe>
-
-
   </body>
 </html>

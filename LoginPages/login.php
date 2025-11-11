@@ -25,14 +25,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="ar">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>تسجيل الدخول</title>
+  <title data-translate="loginTitle">تسجيل الدخول</title>
   <link rel="stylesheet" href="login.css"/>
+  <!-- ترجمة -->
+  <script src="../Settings/lang.js" defer></script>
 </head>
 
 <body>
@@ -43,21 +44,26 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <img src="taibah_logo.png" alt="شعار الجامعة">
       </div>
 
-      <h2 class="login-title">تسجيل الدخول</h2>
-      <p class="welcome-text">مرحبًا بعودتك!</p>
+      <h2 class="login-title" data-translate="loginTitle">تسجيل الدخول</h2>
+      <p class="welcome-text" data-translate="welcomeBack">مرحبًا بعودتك!</p>
 
-      <input type="text" name="username" placeholder="اسم المستخدم" autofocus>
-      <input type="password" name="Password" placeholder="كلمة المرور">
+      <input type="text" name="username"
+             placeholder="اسم المستخدم"
+             data-translate-placeholder="usernamePlaceholder" autofocus>
 
-      <button type="submit" class="btn-login">تسجيل الدخول</button>
+      <input type="password" name="Password"
+             placeholder="كلمة المرور"
+             data-translate-placeholder="passwordPlaceholder">
+
+      <button type="submit" class="btn-login" data-translate="loginButton">تسجيل الدخول</button>
 
       <?php if (!empty($error)): ?>
         <div class="error-box"><?= $error ?></div>
       <?php endif; ?>
 
       <div class="links">
-        <a href="forgotPass.php">نسيت كلمة المرور؟</a> |
-        <a href="signup.php">إنشاء حساب</a>
+        <a href="forgotPass.php" data-translate="forgotPassword">نسيت كلمة المرور؟</a> |
+        <a href="signup.php" data-translate="createAccount">إنشاء حساب</a>
       </div>
     </form>
   </div>

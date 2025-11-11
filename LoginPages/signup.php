@@ -29,39 +29,40 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="ar">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>إنشاء حساب</title>
+  <title data-translate="createAccountTitle">إنشاء حساب</title>
   <link rel="stylesheet" href="login.css"/> <!-- نستخدم نفس ملف التنسيق -->
+  <script src="../Settings/lang.js" defer></script>
 </head>
 
 <body>
   <div class="login-wrapper">
     <form class="login-form" method="post">
       <div class="logo-section">
-        <img src="DF.png" alt="رمز التسجيل"> <!-- استبدل بصورة مناسبة -->
+        <img src="DF.png" alt="رمز التسجيل">
         <img src="taibah_logo.png" alt="شعار الجامعة">
       </div>
-      <h2 class="login-title">إنشاء حساب جديد</h2>
-      <p class="welcome-text">يرجى تعبئة البيانات التالية لإنشاء حسابك الجامعي</p>
 
-      <input type="text" name="username" placeholder="اسم المستخدم">
-      <input type="email" name="email" placeholder="البريد الإلكتروني الجامعي">
-      <input type="password" name="password" placeholder="كلمة المرور">
-      <input type="password" name="confirm" placeholder="تأكيد كلمة المرور">
+      <h2 class="login-title" data-translate="createAccountTitle">إنشاء حساب جديد</h2>
+      <p class="welcome-text" data-translate="signupDesc">يرجى تعبئة البيانات التالية لإنشاء حسابك الجامعي</p>
 
-      <button type="submit" class="btn-login">إنشاء الحساب</button>
+      <input type="text" name="username" placeholder="اسم المستخدم" data-translate-placeholder="usernamePlaceholder">
+      <input type="email" name="email" placeholder="البريد الإلكتروني الجامعي" data-translate-placeholder="emailPlaceholder">
+      <input type="password" name="password" placeholder="كلمة المرور" data-translate-placeholder="passwordPlaceholder">
+      <input type="password" name="confirm" placeholder="تأكيد كلمة المرور" data-translate-placeholder="confirmPasswordPlaceholder">
+
+      <button type="submit" class="btn-login" data-translate="createAccountButton">إنشاء الحساب</button>
 
       <?php if (!empty($error)): ?>
         <div class="error-box"><?= $error ?></div>
       <?php endif; ?>
 
       <div class="links">
-        <a href="login.php">عودة لتسجيل الدخول</a>
+        <a href="login.php" data-translate="backToLogin">عودة لتسجيل الدخول</a>
       </div>
     </form>
   </div>
