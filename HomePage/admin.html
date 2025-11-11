@@ -101,7 +101,7 @@
         <!-- قسم الاحداث -->
         <span>Events Section</span>
         <!--زر عرض الجميع-->
-        <a href="./event/all-events.html">
+        <a href="./add.html">
         <button class="show-all" onclick="showAll('events')">Edit</button>
         </a>
       </div>
@@ -144,7 +144,7 @@
         <!-- الفعاليات-->
         <span>Sports activities Section</span>
         <!--زر عرض الجميع-->
-       <a href="./event/all-events.html">
+       <a href="./add.html">
         <button class="show-all" onclick="showAll('events')">Edit</button>
         </a>
       </div>
@@ -186,7 +186,7 @@
         <!--قسم النوادي الطلابيه -->
         <span>Student event Section</span>
         <!--زر عرض الجميع-->
-        <a href="./event/all-events.html">
+        <a href="./add.html">
         <button class="show-all" onclick="showAll('events')">Edit</button>
         </a>
       </div>
@@ -230,7 +230,7 @@
         <!-- احداث الكليه -->
         <span>Colleges Categories Event Section</span>
         <!--زر عرض الجميع-->
-        <a href="./event/all-events.html">
+        <a href="./add.html">
         <button class="show-all" onclick="showAll('events')">Edit</button>
         </a>
       </div>
@@ -295,6 +295,21 @@
   ">
 </iframe>
 
+<script>
+  const eventsContainer = document.querySelector(".events-container");
+  const events = JSON.parse(localStorage.getItem("events")) || [];
+
+  events.forEach(event => {
+    const card = document.createElement("div");
+    card.className = "event";
+    card.innerHTML = `
+      <img src="${event.image}" alt="${event.name}">
+      <p class="desc title">${event.name}</p>
+      <p class="desc date">${event.time}</p>
+    `;
+    eventsContainer.appendChild(card);
+  });
+</script>
 
   </body>
 </html>

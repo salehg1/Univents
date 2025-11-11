@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add New Event</title>
+
+  <style>
+    body {
+      font-family: "Poppins", "Segoe UI", sans-serif;
+      background-color: #f5f6fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      margin: 60px 20px;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      max-width: 750px;
+      width: 100%;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    h1 {
+      font-size: 32px;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 22px;
+      color: #34495e;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #4CAF50;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .event-image img {
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+      border-radius: 15px;
+      margin: 20px auto;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .upload-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 25px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .upload-btn:hover {
+      background: linear-gradient(135deg, #2980b9, #3498db);
+      transform: translateY(-2px);
+    }
+
+    .input-field {
+      width: 80%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      font-family: inherit;
+      background-color: #f9f9f9;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .input-field:focus {
+      border-color: #4CAF50;
+      background-color: #fff;
+    }
+
+    #add-btn {
+      background: linear-gradient(135deg, #4CAF50, #2ecc71);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 35px;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: 35px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(46, 204, 113, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    #add-btn:hover {
+      background: linear-gradient(135deg, #43a047, #27ae60);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(39, 174, 96, 0.4);
+    }
+
+    #back-btn {
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 35px;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: 20px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(231, 76, 60, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    #back-btn:hover {
+      background: linear-gradient(135deg, #c0392b, #e74c3c);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(192, 57, 43, 0.4);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Add New Event</h1>
+
+    <div class="event-image">
+      <img id="preview" src="https://via.placeholder.com/450x250?text=Event+Image" alt="Event Image">
+    </div>
+
+    <input type="file" id="image-input" accept="image/*" hidden />
+    <button class="upload-btn" id="upload-btn">Upload Image</button>
+
+    <div class="Event-section">
+      <h2>Event Information</h2>
+
+      <input class="input-field" type="text" id="event-name" placeholder="Event Name">
+      <input class="input-field" type="text" id="event-major" placeholder="Major">
+      <input class="input-field" type="text" id="event-location" placeholder="Event Location">
+      <input class="input-field" type="text" id="event-time" placeholder="Event Time">
+    </div>
+
+    <button id="add-btn">Add Event</button>
+    <br>
+    <a href="./admin.html" target="_blank">
+      <button id="back-btn">Go Back</button>
+    </a>
+  </div>
+
+<script>
+  const uploadBtn = document.getElementById("upload-btn");
+  const imageInput = document.getElementById("image-input");
+  const preview = document.getElementById("preview");
+  const addBtn = document.getElementById("add-btn");
+
+  let imageData = "";
+
+  uploadBtn.addEventListener("click", () => {
+    imageInput.click();
+  });
+
+  imageInput.addEventListener("change", () => {
+    const file = imageInput.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        imageData = e.target.result;
+        preview.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  addBtn.addEventListener("click", () => {
+    const event = {
+      name: document.getElementById("event-name").value,
+      major: document.getElementById("event-major").value,
+      location: document.getElementById("event-location").value,
+      time: document.getElementById("event-time").value,
+      image: imageData || "https://via.placeholder.com/450x250?text=Event+Image",
+    };
+
+    let events = JSON.parse(localStorage.getItem("events")) || [];
+    events.push(event);
+    localStorage.setItem("events", JSON.stringify(events));
+    alert("Event added successfully!");
+    
+  });
+
+</script>
+
+
+</body>
+</html>
+
