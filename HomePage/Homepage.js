@@ -53,3 +53,34 @@ window.addEventListener("load", () => {
   showSlide(currentSlide);
   startAutoSlide();
 });
+
+//---------------------------------------------------------------------------------------------
+//event1 test 
+async function updateEventInfo() {
+  const events = [
+    { id: "event1", url: "./event/event1.html" },
+  ];
+
+  for (const event of events) {
+    try {
+      const response = await fetch(event.url);
+      const text = await response.text();
+      const match = text.match(/window\.eventData\s*=\s*(\{[\s\S]*?\});/);
+
+      if (match) {
+        const eventData = eval("(" + match[1] + ")");
+        const container = document.getElementById(event.id);
+        if (container) {
+          container.querySelector(".title").textContent = eventData.title;
+          container.querySelector(".date").textContent = eventData.date;
+          container.querySelector("img").src = eventData.image;
+        }
+      }
+    } catch (err) {
+      console.error("Error loading event info for", event.id, err);
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", updateEventInfo);
+//---------------------------------------------------------------------------------------------
