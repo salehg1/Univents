@@ -1,315 +1,292 @@
 <!DOCTYPE html>
 <html lang="ar">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Univents</title>
-    <link rel="stylesheet" href="Homepage.css" />
-    <!-- ملف css -->
-<script src="Homepage.js" defer></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Univents - Admin</title>
 
-    <!-- ملف js -->
-  </head>
-  <body>
-    
-    <!------------------------------------------------------------------------------------------------------------------------------->
+  <link rel="stylesheet" href="Homepage.css" />
+  <!-- ملف css -->
 
-    <!-- class تصميم للجزء العلوي -->
-    <div class="navbar">
-      <!-- اللوقو حق الصفحه -->
-      <a href="https://www.taibahu.edu.sa/" target="_blank">
-        <img src="taibah_logo.png" class="logo" alt="شعار طيبة" />
-      </a>
+  <script src="Homepage.js" defer></script>
+  <script src="../Settings/lang.js" defer></script>
+  <!-- ملف الترجمة -->
+</head>
 
-      <!-- زر عن الصفحه -->
-      <a
-        onclick="window.location.href = '../HomePage/About/About.html'"
-        target="_blank"
-      >
-        <button id="about-btn">About</button>
-      </a>
+<body>
 
-      <!--زر تحويل الغه-->
-      <button onclick="toggleLanguage()">En/عربي</button>
+  <!------------------------------------------------------------------------------------------------------------------------------->
 
-      <!--البروفايل-->
-      <a href="الربط هنا" target="_blank">
-        <button
-          id="profile-btn"
-          onclick="window.location.href = '../Settings/main_settings/Settings.html'"
-        >
-          Profile
-        </button>
-      </a>
+  <!-- class تصميم للجزء العلوي -->
+  <div class="navbar">
 
-      <!-- زر تسجيل الدخول -->
-       <div class="openModalBtn-Wrapper">
-  <button onclick="openLoginModal()" class="Btn">
-    <div class="sign">
-      <svg viewBox="0 0 512 512">
-        <path
-          d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 
-          406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 
-          0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 
-          9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 
-          32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"
-        ></path>
-      </svg>
-    </div>
-    <div class="text">Log in</div>
-  </button>
-</div>
+    <!-- اللوقو حق الصفحة -->
+    <a href="https://www.taibahu.edu.sa/" target="_blank">
+      <img src="taibah_logo.png" class="logo" alt="شعار طيبة" />
+    </a>
 
+    <!-- زر عن الصفحة -->
+    <a href="../HomePage/About/About.html" target="_blank">
+      <button id="about-btn" data-translate="about">About</button>
+    </a>
+
+    <!-- البروفايل -->
+    <a href="../Settings/main_settings/Settings.html">
+      <button id="profile-btn" data-translate="settings">settings</button>
+    </a>
+
+    <!-- زر تسجيل الدخول -->
+    <div class="openModalBtn-Wrapper">
+      <button onclick="openLoginModal()" class="Btn">
+        <div class="sign">
+          <svg viewBox="0 0 512 512">
+            <path
+              d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 
+                406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 
+                0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 
+                9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 
+                32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"
+            ></path>
+          </svg>
+        </div>
+        <div class="text" data-translate="signUp">Log in</div>
+      </button>
     </div>
 
-    <!------------------------------------------------------------------------------------------------------------------------------>
-<!-- قسم الإشعارات -->
-<div class="Notificaion-container">
-  <!-- السهم الأيسر -->
-  <button class="arrow left" onclick="prevSlide()">🡰</button>
-
-  <div class="Notificaion">
-    <div id="Notificaion" class="Notificaion-slide">
-      <!-- أضف صورك هنا -->
-
-      <a href="./Notificaion/Notificaion1.html">
-        <img src="./Notificaion/Notification1.png" alt="Notification 1" class="slide active" />
-      </a>
-
-      <a href="./activities/activities1.html">
-        <img src="./activities/activity1.png" alt="Notification 2" class="slide active" />
-      </a>
-
-        <a href="./event/event1.html">
-        <img src="./event/events1.png" alt="Notification 1" class="slide active" />
-      </a>
-
-      <!-- تقدر تضيف صور أكثر بنفس الطريقة -->
-    </div>
   </div>
 
-  <!-- السهم الأيمن -->
-  <button class="arrow right" onclick="nextSlide()">🡲</button>
-</div>
+  <!------------------------------------------------------------------------------------------------------------------------------->
+
+  <!-- قسم الإشعارات -->
+  <div class="Notificaion-container">
+    <button class="arrow left" onclick="prevSlide()">🡰</button>
+
+    <div class="Notificaion-slide">
+
+      <div class="slide active">
+        <a href="./Notificaion/Notificaion1.html">
+          <img src="./Notificaion/Notification1.png" alt="Notification 1" />
+        </a>
+      </div>
+
+      <div class="slide">
+        <a href="./activities/activities1.html">
+          <img src="./activities/activity1.png" alt="Notification 2" />
+        </a>
+      </div>
+
+      <div class="slide">
+        <a href="./event/event1.html">
+          <img src="./event/events1.png" alt="Notification 3" />
+        </a>
+      </div>
+
+    </div>
+
+    <button class="arrow right" onclick="nextSlide()">🡲</button>
+  </div>
+
+  <!------------------------------------------------------------------------------------------------------------------------------->
+
+  <div class="container">
+
+    <!-- قسم الأحداث -->
+    <div class="section">
+      <span data-translate="events">Events Section</span>
+
+      <a href="./add.html">
+        <button class="show-all" data-translate="edit">Edit</button>
+      </a>
+    </div>
+
+    <div class="events-container">
+
+      <div class="event">
+        <a href="./event/event1.html">
+          <img src="./event/events1.png" alt="Event 1" />
+        </a>
+        <p class="desc title">Championship for the best player in Taiba</p>
+        <p class="desc date">20 October</p>
+      </div>
+
+      <div class="event">
+        <a href="./event/event2.html">
+          <img src="./event/events2.png" alt="Event 2" />
+        </a>
+        <p class="desc title">Community service to help people</p>
+        <p class="desc date">20 October</p>
+      </div>
+
+      <div class="event">
+        <a href="./event/event3.html">
+          <img src="./event/events3.png" alt="Event 3" />
+        </a>
+        <p class="desc title">Best Project Competition in Taiba</p>
+        <p class="desc date">20 October</p>
+      </div>
+
+    </div>
 
     <!------------------------------------------------------------------------------------------------------------------------------->
 
-    <!-- class عشان تصميم المستطيل الي في (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
-    <div class="container">
-      <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
-      <div class="section">
-        <!-- قسم الاحداث -->
-        <span>Events Section</span>
-        <!--زر عرض الجميع-->
-        <a href="./add.html">
-        <button class="show-all" onclick="showAll('events')">Edit</button>
-        </a>
-      </div>
+    <div class="section">
+      <span data-translate="activities">Sports activities Section</span>
 
-      <!------------------------------------------------------------------------------------------------------------------------------->
+      <a href="./add.html">
+        <button class="show-all" data-translate="edit">Edit</button>
+      </a>
+    </div>
 
-      <!-- class + صور قسم الاحداث-->
-      <div class="events-container">
-        <div class="event">
-          <!-- الصوره الاوله -->
-          <a href="./event/event1.html">
-          <img src="./event/events1.png" alt="event 1" />
-          </a>
-           <p class="desc title">Championship for the best player in Taiba</p>
-           <p class="desc date">20 October</p>
-        </div>
+    <div class="Activities-container">
 
-        <div class="event">
-          <!-- الصوره الثانيه -->
-          <a href="./event/event2.html">
-          <img src="./event/events2.png" alt="event 2" />
-          </a>
-          <p class="desc title">Community service to help people</p>
-          <p class="desc date">20 October</p>
-        </div>
-        <div class="event">
-          <!--الصوره الثالثه-->
-          <a href="./event/event3.html">
-          <img src="./event/events3.png" alt="event 3" />
-          </a>
-          <p class="desc title">Best Project Competition in Taiba</p>
-          <p class="desc date">20 October</p>
-        </div>
-
-      </div>
-      <!------------------------------------------------------------------------------------------------------------------------------->
-
-      <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
-      <div class="section">
-        <!-- الفعاليات-->
-        <span>Sports activities Section</span>
-        <!--زر عرض الجميع-->
-       <a href="./add.html">
-        <button class="show-all" onclick="showAll('events')">Edit</button>
-        </a>
-      </div>
-
-      <!--class + صور الفعاليات-->
-      <div class="Activities-container">
-        <div class="Activities">
-          <!-- الصوره الاوله -->
-          <a href="./activities/activities1.html">
+      <div class="Activities">
+        <a href="./activities/activities1.html">
           <img src="./activities/activity1.png" alt="Activities 1" />
-          </a>
-          <p class="desc title">Taiba Running Championship</p>
-          <p class="desc date">20 October</p>
-        </div>
+        </a>
+        <p class="desc title">Taiba Running Championship</p>
+        <p class="desc date">20 October</p>
+      </div>
 
-        <div class="Activities">
-          <!-- الصوره الثانيه -->
-          <a href="./activities/activities2.html">
+      <div class="Activities">
+        <a href="./activities/activities2.html">
           <img src="./activities/activity2.png" alt="Activities 2" />
-          </a>
-          <p class="desc title">Activiti the best cookr in taiba</p>
-          <p class="desc date">20 October</p>
-        </div>
+        </a>
+        <p class="desc title">Activiti the best cookr in taiba</p>
+        <p class="desc date">20 October</p>
+      </div>
 
-        <div class="Activities">
-          <!--الصوره الثالثه-->
-          <a href="./activities/activities3.html">
+      <div class="Activities">
+        <a href="./activities/activities3.html">
           <img src="./activities/activity3.png" alt="Activities 3" />
-          </a>
-          <p class="desc title">Taiba University Public Swimming Championship</p>
-          <p class="desc date">20 October</p>
-        </div>
-      </div>
-
-      <!------------------------------------------------------------------------------------------------------------------------------->
-
-      <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
-      <div class="section">
-        <!--قسم النوادي الطلابيه -->
-        <span>Student event Section</span>
-        <!--زر عرض الجميع-->
-        <a href="./add.html">
-        <button class="show-all" onclick="showAll('events')">Edit</button>
         </a>
-      </div>
-
-      <!-- class + صور -->
-      <div class="Colleg-container">
-        <div class="Colleg">
-          <!-- الصوره الاوله -->
-          <a href="./Student clubs/Student clubs 1.html">
-          <img src="  " alt="Colleg 1" />
-          </a>
-          <p class="desc title">Learning about engineering prevention</p>
-          <p class="desc date">20 October</p>
-        </div>
-
-        <div class="Colleg">
-          <!-- الصوره الثانيه -->
-          <a href="./Student clubs/Student clubs 2.html">
-          <img src="./Student clubs/student 2.png" alt="Colleg 2" />
-          </a>
-          <p class="desc title">Programming learning course</p>
-          <p class="desc date">20 October</p>
-        </div>
-
-        <div class="Colleg">
-          <!--الصوره الثالثه-->
-          <a href="./Student clubs/Student clubs 3.html">
-          <img src="  " alt="Colleg 3" />
-          </a>
-          <p class="desc title">How to become a skilled dentist</p>
-          <p class="desc date">20 October</p>
-        </div>
+        <p class="desc title">Taiba University Public Swimming Championship</p>
+        <p class="desc date">20 October</p>
       </div>
 
     </div>
 
-      <!------------------------------------------------------------------------------------------------------------------------------->
-
-      <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
-      <div class="section">
-        <!-- احداث الكليه -->
-        <span>Colleges Categories Event Section</span>
-        <!--زر عرض الجميع-->
-        <a href="./add.html">
-        <button class="show-all" onclick="showAll('events')">Edit</button>
-        </a>
-      </div>
-
-      <!-- class + صور احداث الكليه-->
-      <div class="Colleg-container">
-        <div class="Colleg">
-          <!-- الصوره الاوله -->
-          <a href="./Colleg/Colleg1.html">
-          <img src="./Colleg/Collleg1.png" alt="Colleg 1" />
-          </a>
-          <p class="desc title">Learning about engineering prevention</p>
-          <p class="desc date">20 October</p>
-        </div>
-
-        <div class="Colleg">
-          <!-- الصوره الثانيه -->
-          <a href="./Colleg/Colleg2.html">
-          <img src="./Colleg/Collleg2.png" alt="Colleg 2" />
-          </a>
-          <p class="desc title">Programming learning course</p>
-          <p class="desc date">20 October</p>
-        </div>
-
-        <div class="Colleg">
-          <!--الصوره الثالثه-->
-          <a href="./Colleg/Colleg3.html">
-          <img src="./Colleg/Collleg3.png" alt="Colleg 3" />
-          </a>
-          <p class="desc title">How to become a skilled dentist</p>
-          <p class="desc date">20 October</p>
-        </div>
-      </div>
-
-    </div>
     <!------------------------------------------------------------------------------------------------------------------------------->
 
-    <footer>
-      <p>&copy; FS WebDev Univents</p>
-    </footer>
+    <div class="section">
+      <span data-translate="student">Student event Section</span>
 
-<!-- نافذة تسجيل الدخول عائمه -->
-<div id="loginModalOverlay" style="
-  position: fixed;
-  top: 0; 
-  left: 0;
-  width: 100%; 
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-">
-<iframe src="../LoginPages/login.php" 
-  style="
-    width: 420px; 
-    height: 56vh;              /* بدل 600px إلى نسبة من الشاشة */
-    border-radius: 15px; 
-    border: none; 
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      <a href="./add.html">
+        <button class="show-all" data-translate="edit">Edit</button>
+      </a>
+    </div>
+
+    <div class="Colleg-container">
+
+      <div class="Colleg">
+        <a href="./Student clubs/Student clubs 1.html">
+          <img src="#" alt="Student 1" />
+        </a>
+        <p class="desc title">Learning about engineering prevention</p>
+        <p class="desc date">20 October</p>
+      </div>
+
+      <div class="Colleg">
+        <a href="./Student clubs/Student clubs 2.html">
+          <img src="./Student clubs/student 2.png" alt="Student 2" />
+        </a>
+        <p class="desc title">Programming learning course</p>
+        <p class="desc date">20 October</p>
+      </div>
+
+      <div class="Colleg">
+        <a href="./Student clubs/Student clubs 3.html">
+          <img src="#" alt="Student 3" />
+        </a>
+        <p class="desc title">How to become a skilled dentist</p>
+        <p class="desc date">20 October</p>
+      </div>
+
+    </div>
+
+    <!------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="section">
+      <span data-translate="colleges">Colleges Categories Event Section</span>
+
+      <a href="./add.html">
+        <button class="show-all" data-translate="edit">Edit</button>
+      </a>
+    </div>
+
+    <div class="Colleg-container">
+
+      <div class="Colleg">
+        <a href="./Colleg/Colleg1.html">
+          <img src="./Colleg/Collleg1.png" alt="Colleg 1" />
+        </a>
+        <p class="desc title">Learning about engineering prevention</p>
+        <p class="desc date">20 October</p>
+      </div>
+
+      <div class="Colleg">
+        <a href="./Colleg/Colleg2.html">
+          <img src="./Colleg/Collleg2.png" alt="Colleg 2" />
+        </a>
+        <p class="desc title">Programming learning course</p>
+        <p class="desc date">20 October</p>
+      </div>
+
+      <div class="Colleg">
+        <a href="./Colleg/Colleg3.html">
+          <img src="./Colleg/Collleg3.png" alt="Colleg 3" />
+        </a>
+        <p class="desc title">How to become a skilled dentist</p>
+        <p class="desc date">20 October</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!------------------------------------------------------------------------------------------------------------------------------->
+
+  <footer>
+    <p data-translate="footer">&copy; FS WebDev Univents</p>
+  </footer>
+
+  <!-- نافذة تسجيل الدخول -->
+  <div id="loginModalOverlay" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
   ">
-</iframe>
+    <iframe src="../LoginPages/login.php" style="
+      width: 420px;
+      height: 56vh;
+      border-radius: 15px;
+      border: none;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    "></iframe>
+  </div>
 
-<script>
-  const eventsContainer = document.querySelector(".events-container");
-  const events = JSON.parse(localStorage.getItem("events")) || [];
+  <!-- إضافة الأحداث من localStorage -->
+  <script>
+    const eventsContainer = document.querySelector(".events-container");
+    const events = JSON.parse(localStorage.getItem("events")) || [];
 
-  events.forEach(event => {
-    const card = document.createElement("div");
-    card.className = "event";
-    card.innerHTML = `
-      <img src="${event.image}" alt="${event.name}">
-      <p class="desc title">${event.name}</p>
-      <p class="desc date">${event.time}</p>
-    `;
-    eventsContainer.appendChild(card);
-  });
-</script>
+    events.forEach(event => {
+      const card = document.createElement("div");
+      card.className = "event";
+      card.innerHTML = `
+        <img src="${event.image}" alt="${event.name}">
+        <p class="desc title">${event.name}</p>
+        <p class="desc date">${event.time}</p>
+      `;
+      eventsContainer.appendChild(card);
+    });
+  </script>
 
-  </body>
+</body>
 </html>
