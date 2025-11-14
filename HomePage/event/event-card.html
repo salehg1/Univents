@@ -161,7 +161,6 @@
 
 <script>
 
-// يقرا الفعاليه ب id حق الفعاليه و اكيد كل فعاليه لها id مختلف 
 const params = new URLSearchParams(window.location.search);
 const eventId = params.get("id");
 const eventType = params.get("type") || "events";
@@ -169,18 +168,19 @@ const eventType = params.get("type") || "events";
 // يحط كل فعاليه في المكان الي اخترته 
 const list = JSON.parse(localStorage.getItem(eventType)) || [];
 const eventData = list.find(item => item.id == eventId);
+
 if (!eventData) {
   alert("Error: Event not found.");
 }
 
-//الحقول الي راح يقراها زي الصوره و اسم الفعاليه
+// تعبئة البيانات في الصفحة
 document.getElementById("eventImage").src = eventData.image;
 document.getElementById("eventName").innerText = eventData.name;
 document.getElementById("eventMajor").innerText = eventData.major;
 document.getElementById("eventLocation").innerText = eventData.location;
 document.getElementById("eventTime").innerText = eventData.time;
 
-//زر الحذف 
+// زر الحذف 
 document.getElementById("delete-btn").addEventListener("click", () => {
   const updated = list.filter(ev => ev.id != eventId);
   localStorage.setItem(eventType, JSON.stringify(updated));
@@ -189,6 +189,7 @@ document.getElementById("delete-btn").addEventListener("click", () => {
 });
 
 </script>
+
 
 </body>
 </html>

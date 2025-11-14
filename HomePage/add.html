@@ -164,11 +164,10 @@
   </div>
 
 <script>
-//يقرا id الفعاليه 
+
 const params = new URLSearchParams(window.location.search);
 const eventType = params.get('type') || 'events';
 
-//الحقول المطلوب تعبيتها زي الصوره و اسم الفعاليه
 const uploadBtn = document.getElementById("upload-btn");
 const imageInput = document.getElementById("image-input");
 const preview = document.getElementById("preview");
@@ -176,13 +175,13 @@ const addBtn = document.getElementById("add-btn");
 
 let imageData = "";
 
-// يفتحلك المجال عشان تحط الصوره 
+
 uploadBtn.addEventListener("click", () => {
   imageInput.click();
 });
 
-// يوريك الصوره الي اخترتها 
-يimageInput.addEventListener("change", () => {
+
+imageInput.addEventListener("change", () => {
   const file = imageInput.files[0];
   if (file) {
     const reader = new FileReader();
@@ -194,11 +193,9 @@ uploadBtn.addEventListener("click", () => {
   }
 });
 
-// إضافة الفعالية
-addBtn.addEventListener("click", () => {
-   let list = JSON.parse(localStorage.getItem(eventType)) || [];
 
-  //  يعطي الفعاليه id 
+addBtn.addEventListener("click", () => {
+  let list = JSON.parse(localStorage.getItem(eventType)) || [];
 
   const event = {
     id: Date.now(), 
@@ -212,11 +209,9 @@ addBtn.addEventListener("click", () => {
   list.push(event);
   localStorage.setItem(eventType, JSON.stringify(list));
 
-// اليرت عشان تتاكد ان الفعاليه انضافت 
   alert("Event added successfully!");
-  window.location.href = "./admin.html";
+  window.location.href = "admin.html";
 });
-
 </script>
 
 
