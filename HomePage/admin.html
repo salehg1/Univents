@@ -288,8 +288,6 @@ function renderSection(storageKey, containerSelector) {
 
   const list = JSON.parse(localStorage.getItem(storageKey)) || [];
 
-  container.innerHTML = "";
-
   list.forEach(event => {
     const card = document.createElement("div");
 
