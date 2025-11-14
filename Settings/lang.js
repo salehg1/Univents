@@ -50,6 +50,8 @@ const translations = {
     enterNewPassword: "Enter new password",
     confirmNewPassword: "Re-enter new password",
     sendButton: "Send",
+      edit: "edit",
+
 
 
 
@@ -101,6 +103,7 @@ const translations = {
     enterNewPassword: "أدخل كلمة المرور الجديدة",
     confirmNewPassword: "أعد إدخال كلمة المرور الجديدة",
     sendButton: "إرسال",
+    edit: "تعديل",
 
 
 
