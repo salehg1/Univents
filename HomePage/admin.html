@@ -63,50 +63,48 @@
     </div>
 
     <!------------------------------------------------------------------------------------------------------------------------------>
-<!-- قسم الإشعارات -->
-<div class="Notificaion-container">
-  <!-- السهم الأيسر -->
-  <button class="arrow left" onclick="prevSlide()">🡰</button>
+     <!-- قسم الإشعارات -->
+    <div class="Notificaion-container">
+      <!-- السهم الأيسر -->
+      <button class="arrow left" onclick="prevSlide()">🡰</button>
 
-  <div class="Notificaion">
-    <div id="Notificaion" class="Notificaion-slide">
-      <!-- أضف صورك هنا -->
+      <div class="Notificaion-slide">
+        <!-- الصورة الأولى -->
+        <div class="slide active">
+          <a href="./Notificaion/Notificaion1.html">
+            <img src="./Notificaion/Notification1.png" alt="Notification 1" />
+          </a>
+        </div>
 
-      <a href="./Notificaion/Notificaion1.html">
-        <img src="./Notificaion/Notification1.png" alt="Notification 1" class="slide active" />
-      </a>
+        <!-- الصورة الثانية -->
+        <div class="slide">
+          <a href="./activities/activities1.html">
+            <img src="./activities/activity1.png" alt="Notification 2" />
+          </a>
+        </div>
 
-      <a href="./activities/activities1.html">
-        <img src="./activities/activity1.png" alt="Notification 2" class="slide active" />
-      </a>
+        <!-- الصورة الثالثة -->
+        <div class="slide">
+          <a href="./event/event1.html">
+            <img src="./event/events1.png" alt="Notification 3" />
+          </a>
+        </div>
+      </div>
 
-        <a href="./event/event1.html">
-        <img src="./event/events1.png" alt="Notification 1" class="slide active" />
-      </a>
-
-      <!-- تقدر تضيف صور أكثر بنفس الطريقة -->
+      <!-- السهم الأيمن -->
+      <button class="arrow right" onclick="nextSlide()">🡲</button>
     </div>
-  </div>
 
-  <!-- السهم الأيمن -->
-  <button class="arrow right" onclick="nextSlide()">🡲</button>
-</div>
 
     <!------------------------------------------------------------------------------------------------------------------------------->
 
-    <!-- class عشان تصميم المستطيل الي في (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
     <div class="container">
-      <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
+
       <div class="section">
-        <!-- قسم الاحداث -->
         <span>Events Section</span>
-        <!--زر عرض الجميع-->
-        <a href="./add.html">
-        <button class="show-all" onclick="showAll('events')">Edit</button>
-        </a>
+      <button class="add" onclick="window.location.href='add.html'">Add</button>
       </div>
 
-      <!------------------------------------------------------------------------------------------------------------------------------->
 
       <!-- class + صور قسم الاحداث-->
       <div class="events-container">
@@ -137,16 +135,12 @@
         </div>
 
       </div>
-      <!------------------------------------------------------------------------------------------------------------------------------->
 
-      <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
+      <!------------------------------------------------------------------------------------------------------------------------------->
       <div class="section">
         <!-- الفعاليات-->
         <span>Sports activities Section</span>
-        <!--زر عرض الجميع-->
-       <a href="./add.html">
-        <button class="show-all" onclick="showAll('events')">Edit</button>
-        </a>
+          <button class="add" onclick="window.location.href='add.html?type=activities'">Add</button>
       </div>
 
       <!--class + صور الفعاليات-->
@@ -183,26 +177,22 @@
 
       <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
       <div class="section">
-        <!--قسم النوادي الطلابيه -->
         <span>Student event Section</span>
-        <!--زر عرض الجميع-->
-        <a href="./add.html">
-        <button class="show-all" onclick="showAll('events')">Edit</button>
-        </a>
+         <button class="add" onclick="window.location.href='add.html?type=studentClubs'">Add</button>
       </div>
 
       <!-- class + صور -->
-      <div class="Colleg-container">
-        <div class="Colleg">
+      <div class="Student-container">
+        <div class="Student">
           <!-- الصوره الاوله -->
           <a href="./Student clubs/Student clubs 1.html">
-          <img src="  " alt="Colleg 1" />
+          <img src="./Student clubs/student 1.png" alt="Colleg 1" />
           </a>
           <p class="desc title">Learning about engineering prevention</p>
           <p class="desc date">20 October</p>
         </div>
 
-        <div class="Colleg">
+        <div class="Student">
           <!-- الصوره الثانيه -->
           <a href="./Student clubs/Student clubs 2.html">
           <img src="./Student clubs/student 2.png" alt="Colleg 2" />
@@ -211,10 +201,10 @@
           <p class="desc date">20 October</p>
         </div>
 
-        <div class="Colleg">
+        <div class="Student">
           <!--الصوره الثالثه-->
           <a href="./Student clubs/Student clubs 3.html">
-          <img src="  " alt="Colleg 3" />
+          <img src="./Student clubs/student 3.png" alt="Colleg 3" />
           </a>
           <p class="desc title">How to become a skilled dentist</p>
           <p class="desc date">20 October</p>
@@ -225,14 +215,9 @@
 
       <!------------------------------------------------------------------------------------------------------------------------------->
 
-      <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
       <div class="section">
-        <!-- احداث الكليه -->
         <span>Colleges Categories Event Section</span>
-        <!--زر عرض الجميع-->
-        <a href="./add.html">
-        <button class="show-all" onclick="showAll('events')">Edit</button>
-        </a>
+          <button class="add" onclick="window.location.href='add.html?type=colleges'">Add</button>
       </div>
 
       <!-- class + صور احداث الكليه-->
@@ -296,20 +281,52 @@
 </iframe>
 
 <script>
-  const eventsContainer = document.querySelector(".events-container");
-  const events = JSON.parse(localStorage.getItem("events")) || [];
+// يقرا الفعاليه من الوكل ستورج ويحطها في مكانها الصحيح 
+function renderSection(storageKey, containerSelector) {
+  const container = document.querySelector(containerSelector);
+  if (!container) return;
+  const list = JSON.parse(localStorage.getItem(storageKey)) || [];
 
-  events.forEach(event => {
+  // هنا يسوي dif للفعاليه عشان يترتب مكانهم 
+  list.forEach(event => {
     const card = document.createElement("div");
-    card.className = "event";
+
+    // هنا يختار فين المكان الي راح تنحط فيه الفعاليه 
+    if (containerSelector === ".events-container") {
+      card.className = "event";
+    } else if (containerSelector === ".Activities-container") {
+      card.className = "Activities";
+    } else if (containerSelector === ".Student-container") {
+      card.className = "Student";
+    } else if (containerSelector === ".Colleg-container") {
+      card.className = "Colleg";
+    }
+
+    card.style.cursor = "pointer";
+
+    // يرتب الصور بشكل الصحيح الصوره تحتها الدسكربسن تحتها الوقت
     card.innerHTML = `
       <img src="${event.image}" alt="${event.name}">
       <p class="desc title">${event.name}</p>
       <p class="desc date">${event.time}</p>
     `;
-    eventsContainer.appendChild(card);
+// يفك الفعاليه الصحيحه لمن تضغط عليها 
+    card.addEventListener("click", () => {
+      window.location.href = `./event/event-card.html?id=${event.id}&type=${storageKey}`;
+    });
+
+    container.appendChild(card);
   });
+}
+// يرتب اقسام الفعاليه و الفعاليات تروح لمكانها الصحيح 
+renderSection("events", ".events-container");
+renderSection("activities", ".Activities-container");
+renderSection("studentClubs", ".Student-container");
+renderSection("colleges", ".Colleg-container");
+
 </script>
+
+
 
   </body>
 </html>

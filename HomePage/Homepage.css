@@ -184,7 +184,8 @@ body {
 /* Image Containers */
 .events-container,
 .Activities-container,
-.Colleg-container {
+.Colleg-container,
+.Student-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -194,7 +195,8 @@ body {
 
 .event img,
 .Activities img,
-.Colleg img {
+.Colleg img,
+.Student img {
     width: 300px;
     height: 200px;
     border-radius: 15px;
@@ -204,12 +206,16 @@ body {
 
 .event img:hover,
 .Activities img:hover,
-.Colleg img:hover {
+.Colleg img:hover,
+.Student img:hover {
     transform: scale(1.03);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.event, .Activities, .Colleg {
+.event,
+.Activities,
+.Colleg,
+.Student {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -217,7 +223,7 @@ body {
 
 
 
-.show-all {
+.add {
   position: absolute;
   left: 20px;                      /* يخليه على اليسار */
   top: 50%;                        /* بالنص عمودياً */
@@ -232,7 +238,7 @@ body {
   transition: all 0.3s ease;
 }
 
-.show-all:hover {
+.add:hover {
     background-color: var(--secondary-color);
     color: white;
 }

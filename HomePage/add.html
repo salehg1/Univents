@@ -164,44 +164,58 @@
   </div>
 
 <script>
-  const uploadBtn = document.getElementById("upload-btn");
-  const imageInput = document.getElementById("image-input");
-  const preview = document.getElementById("preview");
-  const addBtn = document.getElementById("add-btn");
+//يقرا id الفعاليه 
+const params = new URLSearchParams(window.location.search);
+const eventType = params.get('type') || 'events';
 
-  let imageData = "";
+//الحقول المطلوب تعبيتها زي الصوره و اسم الفعاليه
+const uploadBtn = document.getElementById("upload-btn");
+const imageInput = document.getElementById("image-input");
+const preview = document.getElementById("preview");
+const addBtn = document.getElementById("add-btn");
 
-  uploadBtn.addEventListener("click", () => {
-    imageInput.click();
-  });
+let imageData = "";
 
-  imageInput.addEventListener("change", () => {
-    const file = imageInput.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        imageData = e.target.result;
-        preview.src = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    }
-  });
+// يفتحلك المجال عشان تحط الصوره 
+uploadBtn.addEventListener("click", () => {
+  imageInput.click();
+});
 
-  addBtn.addEventListener("click", () => {
-    const event = {
-      name: document.getElementById("event-name").value,
-      major: document.getElementById("event-major").value,
-      location: document.getElementById("event-location").value,
-      time: document.getElementById("event-time").value,
-      image: imageData || "https://via.placeholder.com/450x250?text=Event+Image",
+// يوريك الصوره الي اخترتها 
+يimageInput.addEventListener("change", () => {
+  const file = imageInput.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      imageData = e.target.result;
+      preview.src = e.target.result;
     };
+    reader.readAsDataURL(file);
+  }
+});
 
-    let events = JSON.parse(localStorage.getItem("events")) || [];
-    events.push(event);
-    localStorage.setItem("events", JSON.stringify(events));
-    alert("Event added successfully!");
-    
-  });
+// إضافة الفعالية
+addBtn.addEventListener("click", () => {
+   let list = JSON.parse(localStorage.getItem(eventType)) || [];
+
+  //  يعطي الفعاليه id 
+
+  const event = {
+    id: Date.now(), 
+    name: document.getElementById("event-name").value,
+    major: document.getElementById("event-major").value,
+    location: document.getElementById("event-location").value,
+    time: document.getElementById("event-time").value,
+    image: imageData || "https://via.placeholder.com/450x250?text=Event+Image",
+  };
+
+  list.push(event);
+  localStorage.setItem(eventType, JSON.stringify(list));
+
+// اليرت عشان تتاكد ان الفعاليه انضافت 
+  alert("Event added successfully!");
+  window.location.href = "./admin.html";
+});
 
 </script>
 

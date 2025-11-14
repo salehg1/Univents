@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Information</title>
+
+  <style>
+    body {
+      font-family: "Poppins", "Segoe UI", sans-serif;
+      background-color: #f5f6fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      margin: 60px 20px;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      max-width: 750px;
+      width: 100%;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    h1 {
+      font-size: 32px;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 22px;
+      color: #34495e;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #4CAF50;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .event-image img {
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+      border-radius: 15px;
+      margin: 20px auto;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      padding: 5px 10px;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+
+    .info-label {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .info-value {
+      color: #555;
+    }
+
+    #delete-btn {
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 35px;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: 20px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(231, 76, 60, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    #delete-btn:hover {
+      background: linear-gradient(135deg, #c0392b, #e74c3c);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(192, 57, 43, 0.4);
+    }
+
+    #back-btn {
+      background: linear-gradient(135deg, #2c2c2c, #555555);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 35px;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: 20px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    #back-btn:hover {
+      background: linear-gradient(135deg, #000000, #444444);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Event Information</h1>
+
+    <div class="event-image">
+      <img id="eventImage" src="" alt="Event Picture">
+    </div>
+
+    <div class="Event-section">
+      <h2>Event Information</h2>
+
+      <div class="info-row">
+        <div class="info-label">Event Name:</div>
+        <div class="info-value" id="eventName"></div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-label">Major:</div>
+        <div class="info-value" id="eventMajor"></div>
+      </div>
+    </div>
+
+    <div class="Event-section">
+      <h2>Event Details</h2>
+
+      <div class="info-row">
+        <div class="info-label">Location:</div>
+        <div class="info-value" id="eventLocation"></div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-label">Time:</div>
+        <div class="info-value" id="eventTime"></div>
+      </div>
+
+      <button id="back-btn" onclick="window.location.href='../admin.html'">Go Back</button>
+      <button id="delete-btn">Delete</button>
+    </div>
+  </div>
+
+<script>
+
+// يقرا الفعاليه ب id حق الفعاليه و اكيد كل فعاليه لها id مختلف 
+const params = new URLSearchParams(window.location.search);
+const eventId = params.get("id");
+const eventType = params.get("type") || "events";
+
+// يحط كل فعاليه في المكان الي اخترته 
+const list = JSON.parse(localStorage.getItem(eventType)) || [];
+const eventData = list.find(item => item.id == eventId);
+if (!eventData) {
+  alert("Error: Event not found.");
+}
+
+//الحقول الي راح يقراها زي الصوره و اسم الفعاليه
+document.getElementById("eventImage").src = eventData.image;
+document.getElementById("eventName").innerText = eventData.name;
+document.getElementById("eventMajor").innerText = eventData.major;
+document.getElementById("eventLocation").innerText = eventData.location;
+document.getElementById("eventTime").innerText = eventData.time;
+
+//زر الحذف 
+document.getElementById("delete-btn").addEventListener("click", () => {
+  const updated = list.filter(ev => ev.id != eventId);
+  localStorage.setItem(eventType, JSON.stringify(updated));
+  alert("Event Deleted!");
+  window.location.href = "../admin.html";
+});
+
+</script>
+
+</body>
+</html>
