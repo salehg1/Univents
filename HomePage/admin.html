@@ -5,42 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Univents</title>
     <link rel="stylesheet" href="Homepage.css" />
-    <!-- ملف css -->
 <script src="Homepage.js" defer></script>
-
-    <!-- ملف js -->
-  </head>
+</head>
   <body>
     
-    <!------------------------------------------------------------------------------------------------------------------------------->
-
-    <!-- class تصميم للجزء العلوي -->
     <div class="navbar">
-      <!-- اللوقو حق الصفحه -->
       <a href="https://www.taibahu.edu.sa/" target="_blank">
         <img src="taibah_logo.png" class="logo" alt="شعار طيبة" />
       </a>
 
-      <!-- زر عن الصفحه -->
       <a
         onclick="window.location.href = '../HomePage/About/About.html'"
-        target="_blank"
-      >
-        <button id="about-btn">About</button>
+        target="_blank"><button id="about-btn">About</button>
       </a>
 
-      <!--زر تحويل الغه-->
-      <button onclick="toggleLanguage()">En/عربي</button>
-
-      <!--البروفايل-->
-      <a href="الربط هنا" target="_blank">
         <button
           id="profile-btn"
-          onclick="window.location.href = '../Settings/main_settings/Settings.html'"
-        >
-          Profile
-        </button>
-      </a>
+          onclick="window.location.href = '../Settings/main_settings/Settings.html'">Profile</button>
 
       <!-- زر تسجيل الدخول -->
        <div class="openModalBtn-Wrapper">
@@ -287,6 +268,7 @@ function renderSection(storageKey, containerSelector) {
   if (!container) return;
 
   const list = JSON.parse(localStorage.getItem(storageKey)) || [];
+
 
   list.forEach(event => {
     const card = document.createElement("div");
