@@ -50,7 +50,11 @@ const translations = {
     enterNewPassword: "Enter new password",
     confirmNewPassword: "Re-enter new password",
     sendButton: "Send",
-      edit: "edit",
+    Add: "Add", 
+    paragraph: "Univents is a smart event communication platform designed for Taibah University. It solves the problem of scattered and unorganized event announcements by providing one centralized, easy-to-use system. With Univents, students can discover upcoming university events, get real-time updates, and register with ease. Organizers can also post event details, manage participation, and connect directly with students. The platform helps build a more connected, active, and engaging campus life — where no event goes unnoticed.",
+    head: "What is Univents?" ,
+    subtitle: "Your Gateway to University Events" ,
+    title: "Welcome to Univents" ,
 
 
 
@@ -103,11 +107,11 @@ const translations = {
     enterNewPassword: "أدخل كلمة المرور الجديدة",
     confirmNewPassword: "أعد إدخال كلمة المرور الجديدة",
     sendButton: "إرسال",
-    edit: "تعديل",
-
-
-
-
+    Add: "اضافة",
+    paragraph: "Univents هو نظام ذكي للتواصل الخاص بالفعاليات صُمم لجامعة طيبة، ويحل مشكلة تشتت الإعلانات وضياع المعلومات من خلال منصة واحدة مركزية وسهلة الاستخدام. يمكن للطلاب من خلالها اكتشاف الفعاليات الجامعية القادمة، واستقبال التحديثات لحظيًا، والتسجيل بسهولة، بينما يستطيع المنظمون نشر تفاصيل الفعاليات وإدارة المشاركين والتواصل مباشرة مع الطلاب. تساعد المنصة في بناء حياة جامعية أكثر ترابطًا ونشاطًا وتفاعلًا، حيث لا تمر أي فعالية دون أن تصل للجميع. " ,
+    head: "ماهو Univents ? " ,
+    subtitle: "بوابتك لفعاليات الجامعة" ,
+    title: "مرحبا بك في Univents " ,
   }
 };
 
