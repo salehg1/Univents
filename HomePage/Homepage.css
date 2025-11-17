@@ -339,3 +339,77 @@ footer {
   .hidden {
     display: none;
 }
+
+.events-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 20px 0 40px;
+}
+
+#eventsContainer {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap !important;   
+    overflow: hidden;               
+    width: 70%;                     
+    min-height: 250px;           
+}
+
+#eventsContainer .event img {
+    width: 300px;
+    height: 200px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+
+.event-left,
+.event-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55px;
+    height: 55px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.event-left {
+    left: 10%;
+}
+
+.event-right {
+    right: 10%;
+}
+
+.event-left:hover,
+.event-right:hover {
+    background: #e4e4e4;
+}
+
+
+.activities-wrapper,
+.student-wrapper,
+.colleges-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin: 20px 0;
+}
+
+.activities-wrapper .Activities-container,
+.student-wrapper .Student-container,
+.colleges-wrapper .Colleg-container {
+  display: flex;
+  gap: 25px;
+}
