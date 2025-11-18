@@ -49,28 +49,24 @@
       </div>
     </div>
 
-    <!------------------------------------------------------------------------------------------------------------------------------->
-    <!-- قسم الإشعارات -->
+<!----------------------------------------------------------------------->
+
     <div class="Notificaion-container">
-      <!-- السهم الأيسر -->
       <button class="arrow left" onclick="prevSlide()">🡰</button>
 
       <div class="Notificaion-slide">
-        <!-- اللأولى -->
         <div class="slide active">
           <a href="./Notificaion/Notificaion1.html">
             <img src="./Notificaion/Notification1.png" alt="Notification 1" />
           </a>
         </div>
 
-        <!-- الصورة الثانية -->
         <div class="slide">
           <a href="./activities/activities1.html">
             <img src="./activities/activity1.png" alt="Notification 2" />
           </a>
         </div>
 
-        <!-- الصورة الثالثة -->
         <div class="slide">
           <a href="./event/event1.html">
             <img src="./event/events1.png" alt="Notification 3" />
@@ -78,140 +74,82 @@
         </div>صورة ا
       </div>
 
-      <!-- السهم الأيمن -->
       <button class="arrow right" onclick="nextSlide()">🡲</button>
     </div>
 
-    <!------------------------------------------------------------------------------------------------------------------------------->
 
-    <!-- class عشان تصميم المستطيل الي في (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
-    <div class="container">
-      <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
-<div class="section">
-  <span data-translate="events">Events Section</span>
-</div>
+<!----------------------------------------------------------------------->
+<!-- Events Section -->
 
-<div class="events-slider">
-  <button class="arrow left" onclick="prevEvent()">🡰</button>
+<div class="container">
 
-  <div class="events-container">
-    <!-- الكروت تنضاف من جافاسكربت -->
+  <div class="section">
+    <span>Events Section</span>
   </div>
 
-  <button class="arrow right" onclick="nextEvent()">🡲</button>
+  <div class="events-wrapper">
+    
+    <button class="slider-arrow event-right" id="evRight">🡲</button>
+
+    <div class="events-container" id="eventsContainer"></div>
+    
+
+    <button class="slider-arrow event-left" id="evLeft">🡰</button>
+  </div>
+
 </div>
-      <!------------------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------->
+<!-- Activities Section -->
+<div class="section">
+  <span>Sports Activities Section</span>
+</div>
 
-      <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
-      <div class="section">
-        <!-- الفعاليات-->
-        <span data-translate="activities">Sports activities Section</span>
-      </div>
+<div class="activities-wrapper">
+  
+  <button class="slider-arrow event-right" id="actRight">🡲</button>
 
-      <!--class + صور الفعاليات-->
-      <div class="Activities-container">
-            <!--هنااا-->
+  <div class="Activities-container" id="activitiesSlider"></div>
 
+  <button class="slider-arrow event-left" id="actLeft">🡰</button>
+  
+</div>
 
+<!----------------------------------------------------------------------->
+<!-- Student Clubs Section -->
 
-     <!--هنااا-->
+<div class="section">
+  <span>Student Clubs Section</span>
+</div>
 
+<div class="student-wrapper">
+  
+  <button class="slider-arrow event-right" id="stuRight">🡲</button>
 
-     <!--هنااا-->
+  <div class="Student-container" id="studentSlider"></div>
 
+  <button class="slider-arrow event-left" id="stuLeft">🡰</button>
+  
+</div>
 
+<!----------------------------------------------------------------------->
+<!-- Colleges Section -->
+ 
+<div class="section">
+  <span>Colleges Categories Event Section</span>
+</div>
 
+<div class="colleges-wrapper">
+  
+  <button class="slider-arrow event-right" id="colRight">🡲</button>
 
+  <div class="Colleg-container" id="collegesSlider"></div>
+  
 
-      </div>
+  <button class="slider-arrow event-left" id="colLeft">🡰</button>
+  
+</div>
 
-      <!------------------------------------------------------------------------------------------------------------------------------->
-
-      <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
-      <div class="section">
-        <!--قسم النوادي الطلابيه -->
-        <span data-translate="student">Student event Section</span>
-      </div>
-
-      <!-- class + صور -->
-      <div class="Colleg-container">
-
-             <!--هنااا-->     <!--هنااا-->     <!--هنااا-->
-
-
-
-        <div class="Colleg">
-          <!-- الصوره الاوله -->
-          <a href="./Student clubs/Student clubs 1.html">
-            <img src="./Student clubs/student 1.png" alt="student 1" />
-          </a>
-          <p class="desc title">Learning about engineering prevention</p>
-          <p class="desc date">20 October</p>
-        </div>
-
-        <div class="Colleg">
-          <!-- الصوره الثانيه -->
-          <a href="./Student clubs/Student clubs 2.html">
-            <img src="./Student clubs/student 2.png" alt="student 2" />
-          </a>
-          <p class="desc title">Programming learning course</p>
-          <p class="desc date">20 October</p>
-        </div>
-
-        <div class="Colleg">
-          <!--الصوره الثالثه-->
-          <a href="./Student clubs/Student clubs 3.html">
-            <img src="./Student clubs/student 3.png" alt="student 3" />
-          </a>
-          <p class="desc title">How to become a skilled dentist</p>
-          <p class="desc date">20 October</p>
-        </div>
-      </div>
-
-      <!------------------------------------------------------------------------------------------------------------------------------->
-
-      <!-- class عشان تصميم شكل (الاحداث و الكليه و الفعاليات) عشان يكونو نفس التصميم-->
-      <div class="section">
-        <!-- احداث الكليه -->
-        <span data-translate="colleges">Colleges Categories Event Section</span>
-      </div>
-
-      <!-- class + صور احداث الكليه-->
-      <div class="Colleg-container">
-             <!--هنااا-->
-             <!--هنااا-->
-             <!--هنااا-->
-        <div class="Colleg">
-          <!-- الصوره الاوله -->
-          <a href="./Colleg/Colleg1.html">
-            <img src="./Colleg/Collleg1.png" alt="Colleg 1" />
-          </a>
-          <p class="desc title">Learning about engineering prevention</p>
-          <p class="desc date">20 October</p>
-        </div>
-
-        <div class="Colleg">
-          <!-- الصوره الثانيه -->
-          <a href="./Colleg/Colleg2.html">
-            <img src="./Colleg/Collleg2.png" alt="Colleg 2" />
-          </a>
-          <p class="desc title">Programming learning course</p>
-          <p class="desc date">20 October</p>
-        </div>
-
-        <div class="Colleg">
-          <!--الصوره الثالثه-->
-          <a href="./Colleg/Colleg3.html">
-            <img src="./Colleg/Collleg3.png" alt="Colleg 3" />
-          </a>
-          <p class="desc title">How to become a skilled dentist</p>
-          <p class="desc date">20 October</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!------------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------->
 
     <footer>
       <p data-translate="footer">&copy; FS WebDev Univents</p>
@@ -234,4 +172,101 @@
       </iframe>
     </div>
   </body>
+
+<script>
+
+function renderSection(storageKey, containerSelector) {
+  const container = document.querySelector(containerSelector);
+  if (!container) return;
+
+  const list = JSON.parse(localStorage.getItem(storageKey)) || [];
+
+
+  list.forEach(event => {
+    const card = document.createElement("div");
+
+    if (containerSelector === ".events-container") {
+      card.className = "event";
+    } else if (containerSelector === ".Activities-container") {
+      card.className = "Activities";
+    } else if (containerSelector === ".Student-container") {
+      card.className = "Student";
+    } else if (containerSelector === ".Colleg-container") {
+      card.className = "Colleg";
+    }
+
+    card.style.cursor = "pointer";
+
+    card.innerHTML = `
+      <img src="${event.image}" alt="${event.name}">
+      <p class="desc title">${event.name}</p>
+      <p class="desc date">${event.time}</p>
+    `;
+
+    card.addEventListener("click", () => {
+      window.location.href = `./event/event-card.html?id=${event.id}&type=${storageKey}`;
+    });
+
+    container.appendChild(card);
+  });
+}
+
+function createSlider(storageKey, containerId, leftBtnId, rightBtnId) {
+  
+  let list = JSON.parse(localStorage.getItem(storageKey)) || [];
+  let index = 0;
+
+  const container = document.getElementById(containerId);
+  const leftBtn = document.getElementById(leftBtnId);
+  const rightBtn = document.getElementById(rightBtnId);
+
+  if (!container) return;
+
+  function render() {
+    container.innerHTML = "";
+
+    let slice = list.slice(index, index + 3);
+
+    slice.forEach(event => {
+      const card = document.createElement("div");
+      card.className = "event";
+
+      card.innerHTML = `
+        <img src="${event.image}" alt="${event.name}">
+        <p class="desc title">${event.name}</p>
+        <p class="desc date">${event.time}</p>
+      `;
+
+      card.onclick = () =>
+        window.location.href = `./event/event-card.html?id=${event.id}&type=${storageKey}`;
+
+      container.appendChild(card);
+    });
+  }
+
+  rightBtn.addEventListener("click", () => {
+       if (index + 3 < list.length) {
+      index++;
+      render();
+    }
+  });
+
+  leftBtn.addEventListener("click", () => {
+    if (index > 0) {
+      index--;
+      render();
+    }
+  });
+
+  render();
+}
+
+createSlider("events","eventsContainer","evLeft","evRight");
+createSlider("activities","activitiesSlider","actLeft","actRight");
+createSlider("studentClubs","studentSlider","stuLeft","stuRight");
+createSlider("colleges","collegesSlider","colLeft","colRight");
+
+</script>
+
+
 </html>

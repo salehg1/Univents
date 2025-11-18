@@ -1,4 +1,4 @@
-/* Reset some styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +13,8 @@
     --text-color: #333;
     --white: #ffffff;
 }
-/* Navbar */
+
+
 .navbar {
     background-color: var(--primary-color);
     display: flex;
@@ -25,14 +26,15 @@
     z-index: 1000;
     flex-wrap: wrap;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
-.navbar button{
-  width: 8rem;
-  height: 2rem;
-  font-size: 20px;
-  padding: 0;
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
+}
+
+.navbar button {
+    width: 8rem;
+    height: 2rem;
+    font-size: 20px;
+    padding: 0;
+    color: #000;
+    background-color: #fff;
 }
 
 button {
@@ -46,13 +48,10 @@ button {
     transition: background-color 0.3s ease;
 }
 
-
 button:hover {
     background-color: #000000;
     color: #ffffff;
-
 }
-
 
 body {
     font-family: var(--font-family);
@@ -63,125 +62,120 @@ body {
     font-size: 1rem;
 }
 
-
-
 .logo {
     width: 190px;
     height: auto;
 }
 
-/* Notification Section */
-.Notificaion-container{
-  width: 900px;
-  height: 500px;
-  margin: 60px auto;
-  position: relative;
-  border-radius: 20px;
-  overflow: visible;
+.Notificaion-container {
+    width: 900px;
+    height: 500px;
+    margin: 60px auto;
+    position: relative;
+    border-radius: 20px;
+    overflow: visible;
 }
 
-.Notificaion-slide{
-  position: relative;
-  width: 100%;
-  height: 100%;
+.Notificaion-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-.Notificaion-slide .slide{
-  position: absolute;
-  inset: 0;              /* top/right/bottom/left: 0 */
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .8s ease-in-out, visibility .8s;
+.Notificaion-slide .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .8s ease-in-out, visibility .8s;
 }
 
-.Notificaion-slide .slide.active{
-  opacity: 1;
-  visibility: visible;
+.Notificaion-slide .slide.active {
+    opacity: 1;
+    visibility: visible;
 }
 
-.Notificaion-slide img{
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
+.Notificaion-slide img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
 }
-
 
 .arrow {
-  position: absolute;
-  top: 42%;
-  font-size: 20px;
-  color: #000;
-  background: #fff;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 10;
+    position: absolute;
+    top: 42%;
+    font-size: 20px;
+    color: #000;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
 }
 
 .arrow.left {
-  left: -35px;
+    left: -35px;
 }
 
 .arrow.right {
-  right: -35px;
+    right: -35px;
 }
 
 .arrow:hover {
-  background: #e4e4e4;
+    background: #e4e4e4;
 }
 
 .desc {
-  background: none;
-  box-shadow: none;
-  padding: 0;
-  margin: 5px 0 0 0;
-  width: 100%;
-  text-align: left;
-  color: #000;
-  direction: ltr;           
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+    width: 100%;
+    text-align: left;
+    color: #000;
+    direction: ltr;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .desc.title {
-  font-size: 16px;
-  font-weight: 600;
-  margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
 }
 
 .desc.date {
-  font-size: 14px;
-  color: #555;
-  margin-top: 4px;
+    font-size: 14px;
+    color: #555;
+    margin-top: 4px;
 }
 
-/* Section Heading */
+
 .section {
-  position: relative;
-  background: var(--white);
-  margin: 30px auto 10px;
-  width: 75%;
-  padding: 15px 20px;
-  font-weight: bold;
-  color: var(--primary-color);
-  border-bottom: 2px solid var(--secondary-color);
-  border-radius: 15px;
-  text-align: center; /* يخلي العنوان بالنص */
+    position: relative;
+    background: var(--white);
+    margin: 30px auto 10px;
+    width: 75%;
+    padding: 15px 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    border-radius: 15px;
+    text-align: center;
 }
 
 .section span {
-  text-align: center;
-  font-weight: bold;
-  font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 
-/* Image Containers */
 .events-container,
 .Activities-container,
 .Colleg-container,
@@ -216,26 +210,24 @@ body {
 .Activities,
 .Colleg,
 .Student {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-
-
 .add {
-  position: absolute;
-  left: 20px;                      /* يخليه على اليسار */
-  top: 50%;                        /* بالنص عمودياً */
-  transform: translateY(-50%);     /* يضبط التمركز العمودي */
-  background-color: transparent;
-  color: var(--secondary-color);
-  font-weight: bold;
-  border: 2px solid var(--secondary-color);
-  padding: 6px 14px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: var(--secondary-color);
+    font-weight: bold;
+    border: 2px solid var(--secondary-color);
+    padding: 6px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .add:hover {
@@ -243,7 +235,6 @@ body {
     color: white;
 }
 
-/* Footer */
 footer {
     background-color: var(--primary-color);
     color: white;
@@ -253,14 +244,11 @@ footer {
     margin-top: 40px;
 }
 
-
-/*  زر تسجيل الدخول في أعلى */
-
 .openModalBtn-Wrapper {
-  width: 170px;
-  display: flex;
-  position: relative;
-  overflow: hidden;   
+    width: 170px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
 }
 
 .Btn {
@@ -273,26 +261,22 @@ footer {
     transition-duration: 0.3s;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
     background-color: #16774f;
-  }
-  
-  /* الجمع */
-  .sign {
+}
+
+.sign {
     width: 100%;
     transition-duration: 0.3s;
- 
-  }
-  
-  .sign svg {
-    width: 20px;
-  }
-  
-  .sign svg path {
-    fill: rgb(0, 0, 0);
+}
 
-   
-  }
-  /* النص */
-  .text {
+.sign svg {
+    width: 20px;
+}
+
+.sign svg path {
+    fill: rgb(0, 0, 0);
+}
+
+.text {
     position: absolute;
     right: 8%;
     opacity: 0;
@@ -300,116 +284,82 @@ footer {
     font-size: 1em;
     font-weight: 600;
     transition-duration: 0.1s;
-  }
-  /* تأثير التمرير على عرض الزر */
-  .Btn:hover {
+}
+
+.Btn:hover {
     background-color: #000000;
     width: 150px;
     border-radius: 40px;
     transition-duration: 0.3s;
+}
 
-}
 .Btn:hover .text {
-    color: #ffffff; 
+    color: #ffffff;
 }
-  
-  .Btn:hover .sign {
+
+.Btn:hover .sign {
     width: 25%;
-    transition-duration: 0.3
-  }
-  
-  .Btn:hover .sign svg path {
+    transition-duration: 0.3;
+}
+
+.Btn:hover .sign svg path {
     fill: rgb(0, 0, 0);
-  }
-  
-  /* نص زر تأثير التمرير */
-  .Btn:hover .text {
+}
+
+.Btn:hover .text {
     opacity: 1;
     width: 90%;
     transition-duration: 0.3s;
     padding-right: 10px;
-  }
-  /* تأثير النقر فوق الزر*/
-  .Btn:active {
+}
+
+
+.Btn:active {
     transform: translate(2px, 2px);
+}
 
-  }
-
-
-  .hidden {
+.hidden {
     display: none;
 }
 
-.events-wrapper {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin: 20px 0 40px;
-}
-
-#eventsContainer {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap !important;   
-    overflow: hidden;               
-    width: 70%;                     
-    min-height: 250px;           
-}
-
-#eventsContainer .event img {
-    width: 300px;
-    height: 200px;
-    border-radius: 15px;
-    object-fit: cover;
-}
-
-
-.event-left,
-.event-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 55px;
-    height: 55px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 20;
-}
-
-.event-left {
-    left: 10%;
-}
-
-.event-right {
-    right: 10%;
-}
-
-.event-left:hover,
-.event-right:hover {
-    background: #e4e4e4;
-}
-
-
+.events-wrapper,
 .activities-wrapper,
 .student-wrapper,
 .colleges-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
-  margin: 20px 0;
+    width: 75%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
 
-.activities-wrapper .Activities-container,
-.student-wrapper .Student-container,
-.colleges-wrapper .Colleg-container {
-  display: flex;
-  gap: 25px;
+#eventsContainer,
+#activitiesSlider,
+#studentSlider,
+#collegesSlider {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
 }
+
+.slider-arrow {
+    background: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #000;
+    font-size: 20px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+    flex-shrink: 0; 
+}
+
+
