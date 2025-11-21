@@ -12,7 +12,7 @@ const translations = {
     student: "Student Clubs Section",
     showAll: "Show All",
     searchPlaceholder: "Search here...",
-    signUp: "Sign up",
+    signUp: "Log In",
     settings: "Settings",
     language: "Change Language",
     logout: "Logout",
