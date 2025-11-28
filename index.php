@@ -1,5 +1,6 @@
 <?php
-$homepage = "Homepage/Homepage.html";
-header("Location: " . $homepage);
+session_start();
+
+header("Location: Homepage/Visitors/Homepage.php");
 exit();
 ?>
