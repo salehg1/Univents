@@ -117,25 +117,28 @@ $participant_ids = get_post_meta($event_id, 'participant_id');
 <div class="container">
     <div class="header-row">
         <div>
-            <h1 data-translate="attendeesList">Attendees List</h1>
-            <p><span data-translate="event">Event</span>: <strong><?php echo esc_html($event->post_title); ?></strong></p>
+            <h1 data-translate="attendeesList"></h1>
+            <p>
+                <span data-translate="event"></span>:
+                <strong><?php echo esc_html($event->post_title); ?></strong>
+            </p>
         </div>
-        <button class="std-btn btn-print" onclick="window.print()" data-translate="printList">Print List</button>
+        <button class="std-btn btn-print" onclick="window.print()" data-translate="printList"></button>
     </div>
 
     <?php if (empty($participant_ids)): ?>
-        <p style="text-align:center; color:#777; font-size: 1.1em; margin: 40px 0;" data-translate="noRegistrations">
-            No registrations yet.
+        <p style="text-align:center; color:#777; font-size: 1.1em; margin: 40px 0;"
+           data-translate="noRegistrations">
         </p>
     <?php else: ?>
         <table>
             <thead>
                 <tr>
                     <th>#</th>
-                    <th data-translate="studentName">Student Name</th>
-                    <th data-translate="studentId">Student ID</th>
-                    <th data-translate="status">Status</th> 
-                    <th data-translate="action">Action</th> 
+                    <th data-translate="studentName"></th>
+                    <th data-translate="studentId"></th>
+                    <th data-translate="status"></th> 
+                    <th data-translate="action"></th> 
                 </tr>
             </thead>
             <tbody>
@@ -147,7 +150,6 @@ $participant_ids = get_post_meta($event_id, 'participant_id');
                     $display_name = $user_info ? $user_info->display_name : 'Unknown';
                     $sid_display = !empty($student_id_meta) ? $student_id_meta : ($user_info ? $user_info->user_login : '-');
 
-                    // CHECK IF ALREADY APPROVED
                     $attended_events = get_user_meta($user_id, 'attended_event_id');
                     $is_approved = in_array($event_id, $attended_events);
                 ?>
@@ -158,18 +160,19 @@ $participant_ids = get_post_meta($event_id, 'participant_id');
                     
                     <td id="status-<?php echo $user_id; ?>">
                         <?php if($is_approved): ?>
-                            <span class="status-badge status-approved" data-translate="attended">Attended</span>
+                            <span class="status-badge status-approved" data-translate="attended"></span>
                         <?php else: ?>
-                            <span class="status-badge status-pending" data-translate="pending">Pending</span>
+                            <span class="status-badge status-pending" data-translate="pending"></span>
                         <?php endif; ?>
                     </td>
 
                     <td id="action-<?php echo $user_id; ?>">
                         <?php if($is_approved): ?>
-                            <span style="color: #27ae60; font-weight: bold;" data-translate="verified">✔ Verified</span>
+                            <span style="color: #27ae60; font-weight: bold;" data-translate="verified"></span>
                         <?php else: ?>
-                            <button class="btn-approve" onclick="approveStudent(<?php echo $user_id; ?>, <?php echo $event_id; ?>)" data-translate="approveAttendance">
-                                Approve Attendance
+                            <button class="btn-approve"
+                                onclick="approveStudent(<?php echo $user_id; ?>, <?php echo $event_id; ?>)"
+                                data-translate="approveAttendance">
                             </button>
                         <?php endif; ?>
                     </td>
@@ -180,8 +183,12 @@ $participant_ids = get_post_meta($event_id, 'participant_id');
     <?php endif; ?>
 
     <br>
-    <a href="event-card.php?id=<?php echo $event_id; ?>" class="std-btn btn-back-custom" data-translate="back">Go Back</a>
+    <a href="event-card.php?id=<?php echo $event_id; ?>"
+       class="std-btn btn-back-custom"
+       data-translate="back">
+    </a>
 </div>
+
 
 <script>
 function approveStudent(userId, eventId) {

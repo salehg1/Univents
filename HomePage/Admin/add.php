@@ -8,20 +8,17 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/wordpress/wp-load.php');
 
 $message = "";
 
-// 2. Handle Form Submission
+// Handle Form Submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_event'])) {
     
-    // Sanitize Inputs
     $name = sanitize_text_field($_POST['event_name']);
     $major = sanitize_text_field($_POST['event_major']);
     $location = sanitize_text_field($_POST['event_location']);
     $time = sanitize_text_field($_POST['event_time']);
     $reg_status = intval($_POST['reg_status']); 
     
-    // FIX 1: Capture the event type from the hidden input
     $type = isset($_POST['event_type']) ? sanitize_text_field($_POST['event_type']) : 'events';
 
-    // Handle Image Upload
     $image_url = "https://via.placeholder.com/450x250?text=No+Image"; 
     
     if (!empty($_FILES['event_image']['name'])) {
@@ -35,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_event'])) {
         }
     }
 
-    // Insert into WP Database
     $post_id = wp_insert_post(array(
         'post_title'    => $name,
         'post_content'  => $location, 
@@ -46,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_event'])) {
             'event_location' => $location,
             'event_time' => $time,
             'requires_registration' => $reg_status,
-            'event_type' => $type, // FIX 2: Saving the type to DB
+            'event_type' => $type,
             'event_image_url' => $image_url
         )
     ));
@@ -59,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_event'])) {
     }
 }
 
-// Get the type from the URL (e.g., add.php?type=activities)
 $current_type = isset($_GET['type']) ? htmlspecialchars($_GET['type']) : 'events';
 ?>
 
@@ -69,14 +64,17 @@ $current_type = isset($_GET['type']) ? htmlspecialchars($_GET['type']) : 'events
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="add.css">
-  <title>Add New Event</title>
-
+  <script src="../../Settings/lang.js" defer></script>
+  <title data-translate="addEventTitle">Add New Event</title>
 </head>
 
 <body>
   <div class="container">
-    <h1>Add New <?php echo ucfirst($current_type); ?></h1>
-    <?php if($message) echo "<p style='color:red'>$message</p>"; ?>
+    <h1 data-translate="addEventTitle">Add New Event</h1>
+
+    <?php if ($message): ?>
+      <p style="color:red"><?= $message ?></p>
+    <?php endif; ?>
 
     <form method="POST" enctype="multipart/form-data">
         
@@ -87,28 +85,68 @@ $current_type = isset($_GET['type']) ? htmlspecialchars($_GET['type']) : 'events
         </div>
 
         <input type="file" id="image-input" name="event_image" accept="image/*" hidden />
-        <button type="button" class="upload-btn" id="upload-btn">Upload Image</button>
+        <button type="button" class="upload-btn" id="upload-btn" data-translate="uploadImage">
+          Upload Image
+        </button>
 
         <div class="Event-section">
-          <h2>Event Information</h2>
+          <h2 data-translate="eventInfo">Event Information</h2>
 
-          <input class="input-field" type="text" name="event_name" placeholder="Event Name" required>
-          <input class="input-field" type="text" name="event_major" placeholder="Major">
-          <input class="input-field" type="text" name="event_location" placeholder="Event Location" required>
-          <input class="input-field" type="text" name="event_time" placeholder="Event Time" required>
+          <input
+            class="input-field"
+            type="text"
+            name="event_name"
+            placeholder="Event Name"
+            data-translate-placeholder="eventName"
+            required
+          >
+
+          <input
+            class="input-field"
+            type="text"
+            name="event_major"
+            placeholder="Major"
+            data-translate-placeholder="major"
+          >
+
+          <input
+            class="input-field"
+            type="text"
+            name="event_location"
+            placeholder="Event Location"
+            data-translate-placeholder="location"
+            required
+          >
+
+          <input
+            class="input-field"
+            type="text"
+            name="event_time"
+            placeholder="Event Time"
+            data-translate-placeholder="time"
+            required
+          >
           
           <select class="input-field" name="reg_status">
-              <option value="1">Requires Registration (Students Only)</option>
-              <option value="0">Open Event (No Registration)</option>
+              <option value="1" data-translate="requiresRegistration">
+                Requires Registration (Students Only)
+              </option>
+              <option value="0" data-translate="openEvent">
+                Open Event (No Registration)
+              </option>
           </select>
         </div>
 
-        <button type="submit" name="submit_event" id="add-btn">Add Event</button>
+        <button type="submit" name="submit_event" id="add-btn" data-translate="add">
+          Add Event
+        </button>
     </form>
 
     <br>
     <a href="./admin.php">
-      <button type="button" id="back-btn">Go Back</button>
+      <button type="button" id="back-btn" data-translate="back">
+        Go Back
+      </button>
     </a>
   </div>
 

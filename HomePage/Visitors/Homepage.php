@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Homepage.php
  * The Visitor View: Shows real events from the DB, but with Login buttons.
  */
@@ -97,7 +97,9 @@ $colleges_list = get_events_by_type('colleges');
       <button id="about-btn" data-translate="about">About</button>
     </a>
 
-    <button id="lang" onclick="toggleLanguage()" data-translate="language">Change Language</button>
+    <button id="lang" onclick="toggleLanguage()" data-translate="language">
+      Change Language
+    </button>
 
     <div class="openModalBtn-Wrapper">
       <button onclick="openLoginModal()" class="Btn">
@@ -139,7 +141,7 @@ $colleges_list = get_events_by_type('colleges');
 
   <div class="container">
     <div class="section">
-      <span>Events Section</span>
+      <span data-translate="events">Events Section</span>
     </div>
     <div class="events-wrapper">
       <button class="slider-arrow event-right" id="evRight">🡲</button>
@@ -149,7 +151,7 @@ $colleges_list = get_events_by_type('colleges');
   </div>
 
   <div class="section">
-    <span>Sports Activities Section</span>
+    <span data-translate="activities">Sports Activities Section</span>
   </div>
   <div class="activities-wrapper">
     <button class="slider-arrow event-right" id="actRight">🡲</button>
@@ -158,7 +160,7 @@ $colleges_list = get_events_by_type('colleges');
   </div>
 
   <div class="section">
-    <span>Student Clubs Section</span>
+    <span data-translate="student">Student Clubs Section</span>
   </div>
   <div class="student-wrapper">
     <button class="slider-arrow event-right" id="stuRight">🡲</button>
@@ -167,7 +169,7 @@ $colleges_list = get_events_by_type('colleges');
   </div>
 
   <div class="section">
-    <span>Colleges Categories Event Section</span>
+    <span data-translate="colleges">Colleges Categories Event Section</span>
   </div>
   <div class="colleges-wrapper">
     <button class="slider-arrow event-right" id="colRight">🡲</button>
@@ -190,13 +192,13 @@ $colleges_list = get_events_by_type('colleges');
       justify-content: center;
       align-items: center;
       z-index: 9999;">
-    <iframe src="../../Entry/LogIn/login.php" style="width: 450px; height: 700px; border-radius: 15px; border: none;">
+    <iframe src="../../Entry/LogIn/login.php"
+      style="width: 450px; height: 700px; border-radius: 15px; border: none;">
     </iframe>
   </div>
 
   <script>
     function createSlider(typeKey, containerId, leftBtnId, rightBtnId) {
-      // FIX: Use window.dbData passed from PHP
       let list = window.dbData[typeKey] || [];
       let index = 0;
 
@@ -209,9 +211,9 @@ $colleges_list = get_events_by_type('colleges');
       function render() {
         container.innerHTML = "";
 
-        // Handle empty state
         if (list.length === 0) {
-          container.innerHTML = "<p style='width:100%; text-align:center; color:gray;'>No events available.</p>";
+          container.innerHTML =
+            "<p style='width:100%; text-align:center; color:gray;'>No events available.</p>";
           return;
         }
 
@@ -219,7 +221,6 @@ $colleges_list = get_events_by_type('colleges');
 
         slice.forEach(event => {
           const card = document.createElement("div");
-          // Keep original CSS classes
           card.className = "event";
 
           card.innerHTML = `
@@ -228,10 +229,9 @@ $colleges_list = get_events_by_type('colleges');
             <p class="desc date">${event.time}</p>
           `;
 
-          // Link to Event Card (Visitors can view, but card handles the "No Access" logic)
           card.onclick = () => {
-            // We'll update event-card.php next to handle visitors
-            window.location.href = `../event/event-card.php?id=${event.id}&type=${typeKey}`;
+            window.location.href =
+              `../event/event-card.php?id=${event.id}&type=${typeKey}`;
           };
 
           container.appendChild(card);
@@ -255,28 +255,25 @@ $colleges_list = get_events_by_type('colleges');
       render();
     }
 
-    // Initialize
     createSlider("events", "eventsContainer", "evLeft", "evRight");
     createSlider("activities", "activitiesSlider", "actLeft", "actRight");
     createSlider("studentClubs", "studentSlider", "stuLeft", "stuRight");
     createSlider("colleges", "collegesSlider", "colLeft", "colRight");
 
-    // Modal Logic (kept from your original)
     function openLoginModal() {
       document.getElementById("loginModalOverlay").style.display = "flex";
     }
-    // Make closeLoginModal globally accessible so the iframe can call it
+
     window.closeLoginModal = function () {
       document.getElementById("loginModalOverlay").style.display = "none";
     }
 
-    // Close on background click
     document.getElementById("loginModalOverlay").addEventListener("click", function (e) {
       if (e.target === this) {
         closeLoginModal();
       }
     });
   </script>
-</body>
 
+</body>
 </html>

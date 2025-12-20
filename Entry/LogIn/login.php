@@ -9,7 +9,6 @@ $values = [
 ];
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    // The "username" field now holds the "Student ID"
     $username = trim($_POST['username'] ?? '');
     $password = $_POST['Password'] ?? '';
 
@@ -19,29 +18,23 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $error = "يرجى إدخال الرقم الجامعي وكلمة المرور";
     } else {
         global $wpdb;
-        // Check credentials against WP Database
+
         $user = $wpdb->get_row($wpdb->prepare(
             "SELECT * FROM $wpdb->users WHERE user_login = %s",
             $username
         ));
 
         if ($user && wp_check_password($password, $user->user_pass, $user->ID)) {
-            $_SESSION['Id'] = $user->ID; // Your custom session
-            $_SESSION['user_id'] = $user->ID; // Standardize for profile.php
+            $_SESSION['Id'] = $user->ID;
+            $_SESSION['user_id'] = $user->ID;
 
-            // Get WordPress Role
             $wp_user = get_user_by('id', $user->ID);
             $roles = $wp_user->roles;
             $role = $roles[0];
             $_SESSION['role'] = $role;
 
-            // 1. DEFINE BASE URL (Dynamic)
-            // This ensures we always point to http://localhost/Univents correctly
             $host = $_SERVER['HTTP_HOST'];
             $base_url = "http://" . $host . "/Univents";
-
-            // 2. DETERMINE REDIRECT URL DIRECTLY (No more redirections.php)
-            $redirect_url = "";
 
             if (in_array('administrator', $roles) || in_array('admin', $roles)) {
                 $redirect_url = $base_url . '/Homepage/Admin/admin.php';
@@ -51,8 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $redirect_url = $base_url . '/Homepage/Visitors/Homepage.php';
             }
 
-            // 3. JAVASCRIPT REDIRECT
-            // We use JS because this login form might be inside a modal/iframe
             echo "<script>
                 if (window.parent.closeLoginModal) {
                     window.parent.closeLoginModal();
@@ -102,17 +93,33 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <div class="error-box"><?= $error ?></div>
             <?php endif; ?>
 
-            <input type="text" name="username" placeholder="الرقم الجامعي"
-                value="<?= htmlspecialchars($values['username']) ?>" autofocus>
+            <input
+                type="text"
+                name="username"
+                placeholder="الرقم الجامعي"
+                data-translate-placeholder="usernamePlaceholder"
+                value="<?= htmlspecialchars($values['username']) ?>"
+                autofocus
+            >
 
-            <input type="password" name="Password" placeholder="كلمة المرور"
-                data-translate-placeholder="passwordPlaceholder">
+            <input
+                type="password"
+                name="Password"
+                placeholder="كلمة المرور"
+                data-translate-placeholder="passwordPlaceholder"
+            >
 
-            <button type="submit" class="btn-login" data-translate="loginButton">تسجيل الدخول</button>
+            <button type="submit" class="btn-login" data-translate="loginButton">
+                تسجيل الدخول
+            </button>
 
             <div class="links">
-                <a href="../PassReset/forgotPass.php" data-translate="forgotPassword">نسيت كلمة المرور؟</a> |
-                <a href="../SignUp/signup.php" data-translate="createAccount">إنشاء حساب</a>
+                <a href="../PassReset/forgotPass.php" data-translate="forgotPassword">
+                    نسيت كلمة المرور؟
+                </a> |
+                <a href="../SignUp/signup.php" data-translate="createAccount">
+                    إنشاء حساب
+                </a>
             </div>
         </form>
     </div>
@@ -126,12 +133,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         form.addEventListener("submit", (e) => {
             if (!username.value.trim() || !password.value.trim()) {
                 e.preventDefault();
-                if (errorBox) errorBox.textContent = "يرجى إدخال الرقم الجامعي وكلمة المرور";
+                if (errorBox) {
+                    errorBox.textContent = "يرجى إدخال الرقم الجامعي وكلمة المرور";
+                }
             }
         });
     </script>
 
-
 </body>
-
 </html>

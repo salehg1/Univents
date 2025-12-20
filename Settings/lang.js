@@ -49,7 +49,7 @@ const translations = {
     confirmNewPassword: "Re-enter new password",
     sendButton: "Send",
     Add: "Add", 
-    paragraph: "Univents is a smart event communication platform designed for Taibah University...",
+    paragraph: "Univents is a smart event communication platform designed for Taibah University. It solves the problem of scattered and unorganized event announcements by providing one centralized, easy-to-use system. With Univents, students can discover upcoming university events, get real-time updates, and register with ease. Organizers can also post event details, manage participation, and connect directly with students. The platform helps build a more connected, active, and engaging campus life — where no event goes unnoticed.",
     head: "What is Univents?",
     subtitle: "Your Gateway to University Events",
     title: "Welcome to Univents",
@@ -83,8 +83,67 @@ const translations = {
     // --- 🆕 NEW KEYS FOR HISTORY ---
     historyTitle: "My Event History",
     noHistory: "You haven't attended any events yet.",
-    adminApprovalNote: "(Attendance must be approved by an Admin)"
+    adminApprovalNote: "(Attendance must be approved by an Admin)",
+    
+    // --- Errors ---
+loginErrorEmpty: "Please enter Student ID and password.",
+loginErrorInvalid: "Invalid Student ID or password.",
+
+resetErrorEmpty: "Please enter both Student ID and Email.",
+resetErrorNotFound: "No account found with that Student ID and Email combination.",
+resetErrorGenerate: "Error generating reset key. Please contact support.",
+
+resetLinkExpired: "This reset link has expired. Please try again.",
+resetLinkInvalid: "Invalid password reset link.",
+resetPasswordEmpty: "Please enter a password.",
+resetPasswordMismatch: "Passwords do not match.",
+
+signupNameRequired: "Please enter your full name.",
+signupNameTooLong: "Name is too long. Maximum is 60 characters.",
+signupStudentIdRequired: "Please enter your Student ID.",
+signupStudentIdExists: "This Student ID is already registered.",
+signupEmailRequired: "Please enter your email.",
+signupEmailInvalid: "Invalid email format.",
+signupEmailNotUniversity: "Please use your university email only.",
+signupEmailExists: "This email is already in use.",
+signupPasswordRequired: "Please enter a password.",
+signupConfirmRequired: "Please confirm your password.",
+signupPasswordMismatch: "Passwords do not match.",
+signupGenericError: "An error occurred while creating the account. Please try again.",
+confirmLogout: "Are you sure you want to log out?",
+eventInfo: "Event Information",
+eventPicture: "Event Picture",
+eventName: "Event Name:",
+major: "Major:",
+eventDetails: "Event Details",
+location: "Location:",
+time: "Time:",
+back: "Go Back",
+viewAttendees: "View Attendees",
+deleteEvent: "Delete Event",
+deleteConfirm: "Are you sure you want to delete this event?",
+registered: "Registered",
+register: "Register",
+attendeesList: "Attendees List",
+event: "Event",
+printList: "Print List",
+noRegistrations: "No registrations yet",
+studentName: "Student Name",
+studentId: "Student ID",
+status: "Status",
+action: "Action",
+attended: "Attended",
+pending: "Pending",
+verified: "Verified",
+approveAttendance: "Approve Attendance",
+back: "Go Back",
+
+
+
+
+
   },
+    
   ar: {
     // --- Existing Keys ---
     about: "عن الصفحة",
@@ -131,7 +190,7 @@ const translations = {
     confirmNewPassword: "أعد إدخال كلمة المرور الجديدة",
     sendButton: "إرسال",
     Add: "اضافة",
-    paragraph: "Univents هو نظام ذكي للتواصل الخاص بالفعاليات...",
+    paragraph: "Univents هو نظام ذكي للتواصل وإدارة الفعاليات صُمم خصيصًا لجامعة طيبة. يهدف إلى حل مشكلة تشتت الإعلانات وعدم تنظيمها من خلال توفير منصة موحدة وسهلة الاستخدام. يتيح Univents للطلاب اكتشاف الفعاليات الجامعية القادمة، والحصول على تحديثات فورية، والتسجيل بكل سهولة. كما يمكّن منظمي الفعاليات من نشر تفاصيل الفعاليات، وإدارة المشاركات، والتواصل المباشر مع الطلاب. تسهم المنصة في بناء بيئة جامعية أكثر تفاعلًا وترابطًا، حيث لا تمر أي فعالية دون اهتمام.",
     head: "ماهو Univents ?",
     subtitle: "بوابتك لفعاليات الجامعة",
     title: "مرحبا بك في Univents",
@@ -165,8 +224,62 @@ const translations = {
     // --- 🆕 NEW KEYS FOR HISTORY ---
     historyTitle: "سجل فعالياتي",
     noHistory: "لم تحضر أي فعاليات بعد.",
-    adminApprovalNote: "(يجب اعتماد الحضور من قبل المسؤول)"
+    adminApprovalNote: "(يجب اعتماد الحضور من قبل المسؤول)",
+      // --- Errors ---
+
+  resetErrorEmpty: "يرجى إدخال الرقم الجامعي والبريد الإلكتروني",
+resetErrorNotFound: "لا يوجد حساب مطابق للرقم الجامعي والبريد الإلكتروني",
+resetErrorGenerate: "حدث خطأ أثناء إنشاء رابط إعادة التعيين، يرجى التواصل مع الدعم",
+
+resetLinkExpired: "انتهت صلاحية رابط إعادة التعيين، يرجى المحاولة مرة أخرى",
+resetLinkInvalid: "رابط إعادة تعيين كلمة المرور غير صالح",
+resetPasswordEmpty: "يرجى إدخال كلمة المرور",
+resetPasswordMismatch: "كلمتا المرور غير متطابقتين",
+
+signupNameRequired: "يرجى إدخال الاسم الكامل",
+signupNameTooLong: "الاسم طويل جدًا، الحد الأقصى 60 حرفًا",
+signupStudentIdRequired: "يرجى إدخال الرقم الجامعي",
+signupStudentIdExists: "الرقم الجامعي مسجل بالفعل",
+signupEmailRequired: "يرجى إدخال البريد الإلكتروني",
+signupEmailInvalid: "البريد الإلكتروني غير صالح",
+signupEmailNotUniversity: "يرجى استخدام البريد الجامعي فقط",
+signupEmailExists: "البريد الإلكتروني مستخدم بالفعل",
+signupPasswordRequired: "يرجى إدخال كلمة المرور",
+signupConfirmRequired: "يرجى تأكيد كلمة المرور",
+signupPasswordMismatch: "كلمتا المرور غير متطابقتين",
+signupGenericError: "حدث خطأ أثناء إنشاء الحساب، يرجى المحاولة مرة أخرى",
+confirmLogout: "هل أنت متأكد من تسجيل الخروج؟",
+eventInfo: "معلومات الفعالية",
+eventPicture: "صورة الفعالية",
+eventName: "اسم الفعالية:",
+major: "التخصص:",
+eventDetails: "تفاصيل الفعالية",
+location: "الموقع:",
+time: "الوقت:",
+back: "رجوع",
+viewAttendees: "عرض المسجلين",
+deleteEvent: "حذف الفعالية",
+deleteConfirm: "هل أنت متأكد من حذف هذه الفعالية؟",
+registered: "تم التسجيل",
+register: "تسجيل",
+attendeesList: "قائمة الحضور",
+event: "الفعالية",
+printList: "طباعة القائمة",
+noRegistrations: "لا توجد تسجيلات حتى الآن",
+studentName: "اسم الطالب",
+studentId: "الرقم الجامعي",
+status: "الحالة",
+action: "الإجراء",
+attended: "حضر",
+pending: "قيد الانتظار",
+verified: "تم التحقق",
+approveAttendance: "اعتماد الحضور",
+back: "رجوع",
+
   }
+
+
+
 };
 
 // --- LOGIC (UNCHANGED) ---

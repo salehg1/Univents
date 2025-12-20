@@ -113,7 +113,12 @@ if (isset($_POST['action']) && $_POST['action'] === 'delete') {
     <h1 data-translate="eventInfo">Event Information</h1>
 
     <div class="event-image">
-      <img id="eventImage" src="<?php echo esc_url($image_url); ?>" alt="Event Picture" />
+      <img
+        id="eventImage"
+        src="<?php echo esc_url($image_url); ?>"
+        alt="Event Picture"
+        data-translate-alt="eventPicture"
+      />
     </div>
 
     <div class="Event-section">
@@ -145,28 +150,60 @@ if (isset($_POST['action']) && $_POST['action'] === 'delete') {
 
       <div class="buttons-row">
         
-        <a href="<?php echo $back_url; ?>" id="back-btn" class="std-btn btn-red" data-translate="back">Go Back</a>
+        <a
+          href="<?php echo $back_url; ?>"
+          id="back-btn"
+          class="std-btn btn-red"
+          data-translate="back"
+        >
+          Go Back
+        </a>
 
         <?php if ($role === 'administrator' || $role === 'admin'): ?>
           
-          <button class="std-btn btn-blue"
+          <button
+            class="std-btn btn-blue"
             onclick="window.location.href='view-attendees.php?id=<?php echo $event_id; ?>'"
-            data-translate="viewAttendees">
+            data-translate="viewAttendees"
+          >
             View Attendees
           </button>
 
-          <form method="POST" style="display:inline;" onsubmit="return confirm('Delete this event?');">
+          <form
+            method="POST"
+            style="display:inline;"
+            onsubmit="return confirm(document.documentElement.lang === 'ar' ? translations.deleteConfirm.ar : translations.deleteConfirm.en);"
+          >
             <input type="hidden" name="action" value="delete">
-            <button type="submit" id="delete-btn" class="std-btn btn-red" data-translate="deleteEvent">Delete Event</button>
+            <button
+              type="submit"
+              id="delete-btn"
+              class="std-btn btn-red"
+              data-translate="deleteEvent"
+            >
+              Delete Event
+            </button>
           </form>
 
         <?php elseif ($role === 'visitor'): ?>
-          <?php else: ?>
+        <?php else: ?>
           <?php if ($requires_reg == '1'): ?>
             <?php if ($is_registered): ?>
-              <button class="std-btn btn-grey" disabled data-translate="registered">✅ Registered</button>
+              <button
+                class="std-btn btn-grey"
+                disabled
+                data-translate="registered"
+              >
+                ✅ Registered
+              </button>
             <?php else: ?>
-              <button id="register-btn" class="std-btn btn-green" data-translate="register">Register</button>
+              <button
+                id="register-btn"
+                class="std-btn btn-green"
+                data-translate="register"
+              >
+                Register
+              </button>
             <?php endif; ?>
           <?php endif; ?>
         <?php endif; ?>

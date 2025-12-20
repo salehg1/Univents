@@ -4,10 +4,8 @@
  * Displays events fetched from the WordPress Database for Students.
  */
 
-// 1. Connect to WordPress (Using Setup 2 path)
 require_once($_SERVER['DOCUMENT_ROOT'] . '/wordpress/wp-load.php'); 
 
-// 2. Helper function to fetch events (Same as Admin)
 function get_events_by_type($type_slug) {
     $args = array(
         'post_type'      => 'post',
@@ -21,8 +19,7 @@ function get_events_by_type($type_slug) {
         )
     );
     
-    // Handle generic events category
-    if($type_slug === 'events') {
+    if ($type_slug === 'events') {
         $args['meta_query']['relation'] = 'OR';
         $args['meta_query'][] = array(
              'key'     => 'event_type',
@@ -41,7 +38,9 @@ function get_events_by_type($type_slug) {
             $image = get_post_meta($id, 'event_image_url', true);
             $time = get_post_meta($id, 'event_time', true);
             
-            if(!$image) $image = "https://via.placeholder.com/450x250?text=No+Image";
+            if (!$image) {
+                $image = "https://via.placeholder.com/450x250?text=No+Image";
+            }
 
             $events[] = array(
                 'id'    => $id,
@@ -55,11 +54,10 @@ function get_events_by_type($type_slug) {
     return $events;
 }
 
-// 3. Fetch data for all sections
-$events_list      = get_events_by_type('events');
-$activities_list  = get_events_by_type('activities');
-$clubs_list       = get_events_by_type('studentClubs');
-$colleges_list    = get_events_by_type('colleges');
+$events_list     = get_events_by_type('events');
+$activities_list = get_events_by_type('activities');
+$clubs_list      = get_events_by_type('studentClubs');
+$colleges_list   = get_events_by_type('colleges');
 ?>
 
 <!DOCTYPE html>
@@ -73,10 +71,10 @@ $colleges_list    = get_events_by_type('colleges');
 
     <script>
         window.dbData = {
-            'events':       <?php echo json_encode($events_list); ?>,
-            'activities':   <?php echo json_encode($activities_list); ?>,
-            'studentClubs': <?php echo json_encode($clubs_list); ?>,
-            'colleges':     <?php echo json_encode($colleges_list); ?>
+            events: <?php echo json_encode($events_list); ?>,
+            activities: <?php echo json_encode($activities_list); ?>,
+            studentClubs: <?php echo json_encode($clubs_list); ?>,
+            colleges: <?php echo json_encode($colleges_list); ?>
         };
     </script>
 
@@ -104,20 +102,28 @@ $colleges_list    = get_events_by_type('colleges');
         <button class="arrow left" onclick="prevSlide()">🡰</button>
         <div class="Notificaion-slide">
             <div class="slide active">
-                <a href="../Notificaion/Notificaion.html"><img src="../Notificaion/Notification1.png" alt="Notification 1" /></a>
+                <a href="../Notificaion/Notificaion.html">
+                    <img src="../Notificaion/Notification1.png" alt="Notification 1" />
+                </a>
             </div>
             <div class="slide">
-                <a href="../Notificaion/Notificaion.html"><img src="../Notificaion/Notification1.png" alt="Notification 1" /></a>
+                <a href="../Notificaion/Notificaion.html">
+                    <img src="../Notificaion/Notification1.png" alt="Notification 1" />
+                </a>
             </div>
             <div class="slide">
-                <a href="../Notificaion/Notificaion.html"><img src="../Notificaion/Notification1.png" alt="Notification 1" /></a>
+                <a href="../Notificaion/Notificaion.html">
+                    <img src="../Notificaion/Notification1.png" alt="Notification 1" />
+                </a>
             </div>
         </div>
         <button class="arrow right" onclick="nextSlide()">🡲</button>
     </div>
 
     <div class="container">
-        <div class="section"><span>Events Section</span></div>
+        <div class="section">
+            <span data-translate="events">Events Section</span>
+        </div>
         <div class="events-wrapper">
             <button class="slider-arrow event-right" id="evRight">🡲</button>
             <div class="events-container" id="eventsContainer"></div>
@@ -125,21 +131,27 @@ $colleges_list    = get_events_by_type('colleges');
         </div>
     </div>
 
-    <div class="section"><span>Sports Activities Section</span></div>
+    <div class="section">
+        <span data-translate="activities">Sports Activities Section</span>
+    </div>
     <div class="activities-wrapper">
         <button class="slider-arrow event-right" id="actRight">🡲</button>
         <div class="Activities-container" id="activitiesSlider"></div>
         <button class="slider-arrow event-left" id="actLeft">🡰</button>
     </div>
 
-    <div class="section"><span>Student Clubs Section</span></div>
+    <div class="section">
+        <span data-translate="student">Student Clubs Section</span>
+    </div>
     <div class="student-wrapper">
         <button class="slider-arrow event-right" id="stuRight">🡲</button>
         <div class="Student-container" id="studentSlider"></div>
         <button class="slider-arrow event-left" id="stuLeft">🡰</button>
     </div>
 
-    <div class="section"><span>Colleges Categories Event Section</span></div>
+    <div class="section">
+        <span data-translate="colleges">Colleges Categories Event Section</span>
+    </div>
     <div class="colleges-wrapper">
         <button class="slider-arrow event-right" id="colRight">🡲</button>
         <div class="Colleg-container" id="collegesSlider"></div>

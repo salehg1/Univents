@@ -31,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !is_wp_error($user)) {
     } elseif ($pass1 !== $pass2) {
         $error = "Passwords do not match.";
     } else {
-        // SAVE NEW PASSWORD
         reset_password($user, $pass1);
         $success = "Password updated successfully!";
     }
@@ -43,34 +42,59 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !is_wp_error($user)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Set New Password</title>
+    <title data-translate="enterNewPassword">Set New Password</title>
+
     <link rel="stylesheet" href="../LogIn/login.css"/> 
     <script src="../../Settings/lang.js" defer></script>
+
     <style>
-        .message-box { padding: 10px; margin-bottom: 15px; border-radius: 5px; text-align: center; }
-        .error-box { background-color: #ffdddd; color: red; }
-        .success-box { background-color: #dff0d8; color: green; }
+        .message-box {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .error-box {
+            background-color: #ffdddd;
+            color: red;
+        }
+        .success-box {
+            background-color: #dff0d8;
+            color: green;
+        }
     </style>
 </head>
+
 <body>
   <div class="login-wrapper">
     
     <?php if ($success): ?>
         <div class="login-form" style="text-align:center;">
-             <div class="logo-section">
+            <div class="logo-section">
                 <img src="../Assets/taibah_logo.png" alt="University Logo">
-             </div>
-             <h2 class="login-title">Success!</h2>
-             <div class="message-box success-box"><?php echo $success; ?></div>
-             <p>You can now log in with your new password.</p>
-             <br>
-             <a href="../LogIn/login.php" class="btn-login" style="text-decoration:none; display:inline-block;">Go to Login</a>
+            </div>
+
+            <h2 class="login-title">Success!</h2>
+            <div class="message-box success-box"><?php echo $success; ?></div>
+            <p>You can now log in with your new password.</p>
+            <br>
+            <a href="../LogIn/login.php"
+               class="btn-login"
+               style="text-decoration:none; display:inline-block;"
+               data-translate="backToLogin">
+               Go to Login
+            </a>
         </div>
 
     <?php elseif (is_wp_error($user)): ?>
         <div class="login-form" style="text-align:center;">
             <div class="message-box error-box"><?php echo $error; ?></div>
-            <a href="forgotPass.php" class="btn-login" style="text-decoration:none;">Request New Link</a>
+            <a href="forgotPass.php"
+               class="btn-login"
+               style="text-decoration:none;"
+               data-translate="backToLogin">
+               Request New Link
+            </a>
         </div>
 
     <?php else: ?>
@@ -80,16 +104,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !is_wp_error($user)) {
                 <img src="../Assets/taibah_logo.png" alt="University Logo">
             </div>
 
-            <h2 class="login-title" data-translate="enterNewPassword">Enter New Password</h2>
+            <h2 class="login-title" data-translate="enterNewPassword">
+                Enter New Password
+            </h2>
             
-            <?php if($error): ?>
+            <?php if ($error): ?>
                 <div class="message-box error-box"><?php echo $error; ?></div>
             <?php endif; ?>
 
-            <input type="password" name="pass1" placeholder="New Password" required>
-            <input type="password" name="pass2" placeholder="Confirm New Password" required>
+            <input
+                type="password"
+                name="pass1"
+                placeholder="New Password"
+                data-translate-placeholder="enterNewPassword"
+                required
+            >
 
-            <button type="submit" class="btn-login" data-translate="savePassword">Save Password</button>
+            <input
+                type="password"
+                name="pass2"
+                placeholder="Confirm New Password"
+                data-translate-placeholder="confirmNewPassword"
+                required
+            >
+
+            <button type="submit" class="btn-login">
+                Save Password
+            </button>
         </form>
     <?php endif; ?>
 

@@ -98,16 +98,19 @@ $colleges_list = get_events_by_type('colleges');
     <button class="arrow left" onclick="prevSlide()">🡰</button>
     <div class="Notificaion-slide">
       <div class="slide active">
-        <a href="../Notificaion/Notificaion.html"><img src="../Notificaion/Notification1.png"
-            alt="Notification 1" /></a>
+        <a href="../Notificaion/Notificaion.html">
+          <img src="../Notificaion/Notification1.png" alt="Notification 1" />
+        </a>
       </div>
       <div class="slide">
-        <a href="../Notificaion/Notificaion.html"><img src="../Notificaion/Notification1.png"
-            alt="Notification 1" /></a>
+        <a href="../Notificaion/Notificaion.html">
+          <img src="../Notificaion/Notification1.png" alt="Notification 1" />
+        </a>
       </div>
       <div class="slide">
-        <a href="../Notificaion/Notificaion.html"><img src="../Notificaion/Notification1.png"
-            alt="Notification 1" /></a>
+        <a href="../Notificaion/Notificaion.html">
+          <img src="../Notificaion/Notification1.png" alt="Notification 1" />
+        </a>
       </div>
     </div>
     <button class="arrow right" onclick="nextSlide()">🡲</button>
@@ -115,8 +118,9 @@ $colleges_list = get_events_by_type('colleges');
 
   <div class="container">
     <div class="section">
-      <span>Events Section</span>
-      <button class="add" onclick="window.location.href='add.php?type=events'">Add</button>
+      <span data-translate="events">Events Section</span>
+      <button class="add" data-translate="add"
+        onclick="window.location.href='add.php?type=events'">Add</button>
     </div>
     <div class="events-wrapper">
       <button class="slider-arrow event-right" id="evRight">🡲</button>
@@ -126,8 +130,9 @@ $colleges_list = get_events_by_type('colleges');
   </div>
 
   <div class="section">
-    <span>Sports Activities Section</span>
-    <button class="add" onclick="window.location.href='add.php?type=activities'">Add</button>
+    <span data-translate="activities">Sports Activities Section</span>
+    <button class="add" data-translate="add"
+      onclick="window.location.href='add.php?type=activities'">Add</button>
   </div>
   <div class="activities-wrapper">
     <button class="slider-arrow event-right" id="actRight">🡲</button>
@@ -136,8 +141,9 @@ $colleges_list = get_events_by_type('colleges');
   </div>
 
   <div class="section">
-    <span>Student Clubs Section</span>
-    <button class="add" onclick="window.location.href='add.php?type=studentClubs'">Add</button>
+    <span data-translate="student">Student Clubs Section</span>
+    <button class="add" data-translate="add"
+      onclick="window.location.href='add.php?type=studentClubs'">Add</button>
   </div>
   <div class="student-wrapper">
     <button class="slider-arrow event-right" id="stuRight">🡲</button>
@@ -146,8 +152,9 @@ $colleges_list = get_events_by_type('colleges');
   </div>
 
   <div class="section">
-    <span>Colleges Categories Event Section</span>
-    <button class="add" onclick="window.location.href='add.php?type=colleges'">Add</button>
+    <span data-translate="colleges">Colleges Categories Event Section</span>
+    <button class="add" data-translate="add"
+      onclick="window.location.href='add.php?type=colleges'">Add</button>
   </div>
   <div class="colleges-wrapper">
     <button class="slider-arrow event-right" id="colRight">🡲</button>
