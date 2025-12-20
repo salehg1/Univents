@@ -1,6 +1,6 @@
 <?php
 session_start();
-$userRole = $_SESSION['role'] ?? null;
+$userRole = $_SESSION['role'] ?? null; // null if not logged in
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ $userRole = $_SESSION['role'] ?? null;
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-translate="settings">Taibah Univents - Settings</title>
+  <title data-translate="settingsTitle">Taibah Univents - Settings</title>
   <link rel="icon" href="./Images/taibah_logo.png" type="image/*">
   <link rel="stylesheet" href="Settings.css">
   <link rel="stylesheet" href="../Profile/profile.css">
@@ -28,7 +28,7 @@ $userRole = $_SESSION['role'] ?? null;
     </button>
 
     <div class="settings-list">
-
+      
       <?php if ($userRole === 'administrator' || $userRole === 'subscriber'): ?>
         <div
           class="settings-item"
@@ -68,25 +68,29 @@ $userRole = $_SESSION['role'] ?? null;
 
   <script>
     function logoutUser() {
-      if (confirm(langStrings?.confirmLogout || "Are you sure you want to log out?")) {
+      if (confirm("Are you sure you want to log out?")) {
+        // Ensure path matches your folder structure
         window.location.href = "../../Entry/LogOut/logout.php";
       }
     }
 
+    // Improved Go Back Logic
     function goBackSafe() {
       if (document.referrer && document.referrer.indexOf(window.location.host) !== -1) {
         window.history.back();
       } else {
+        // Fallback if no history exists
         <?php if ($userRole === 'administrator'): ?>
-          window.location.href = '../../Homepage/Admin/admin.php';
+            window.location.href = '../../Homepage/Admin/admin.php';
         <?php elseif ($userRole === 'subscriber'): ?>
-          window.location.href = '../../Homepage/Student/StudentHomepage.php';
+            window.location.href = '../../Homepage/Student/StudentHomepage.php';
         <?php else: ?>
-          window.location.href = '../../Homepage/Visitors/Homepage.php';
+            window.location.href = '../../Homepage/Visitors/Homepage.php';
         <?php endif; ?>
       }
     }
   </script>
 
 </body>
+
 </html>
