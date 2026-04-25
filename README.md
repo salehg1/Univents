@@ -92,14 +92,6 @@ The portal lets you explore the app as:
 
 ---
 
-## Screenshots
-
-| Portal | Student Dashboard | Event Card |
-|--------|------------------|------------|
-| ![Portal](https://via.placeholder.com/280x160?text=Portal) | ![Student](https://via.placeholder.com/280x160?text=Student) | ![Event](https://via.placeholder.com/280x160?text=Event+Card) |
-
----
-
 ## Authors
 
-Developed by FS WebDev — Taibah University capstone project.
+Developed by FS WebDev Students — Taibah University Graduation Project.
