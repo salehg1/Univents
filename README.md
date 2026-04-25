@@ -90,8 +90,6 @@ The portal lets you explore the app as:
 - **Student** — Register for events, view profile and past events
 - **Admin** — Manage events, view and approve attendee lists
 
----
-
 ## Authors
 
 Developed by FS WebDev Students — Taibah University Graduation Project.
