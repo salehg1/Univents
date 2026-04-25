@@ -43,10 +43,12 @@ function get_events_by_type($type_slug) {
             }
 
             $events[] = array(
-                'id'    => $id,
-                'name'  => get_the_title(),
-                'time'  => $time,
-                'image' => $image
+                'id'      => $id,
+                'name'    => get_the_title(),
+                'name_ar' => get_post_meta($id, 'event_name_ar', true),
+                'time'    => $time,
+                'time_ar' => get_post_meta($id, 'event_time_ar', true),
+                'image'   => $image
             );
         }
         wp_reset_postdata();

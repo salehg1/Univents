@@ -1,0 +1,22 @@
+# Run-once setup scripts (delete after use)
+seed-events.php
+update-images.php
+add-arabic-meta.php
+fix-career-image.php
+
+# Database credentials
+Dependencies/connection.php
+
+# WordPress config (if ever copied here)
+wp-config.php
+
+# Editor config
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# PHP error logs
+*.log
+error_log

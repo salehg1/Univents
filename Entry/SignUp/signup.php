@@ -4,8 +4,7 @@
  * Updated: Uses Student ID as the login credential (user_login) instead of a generic username.
  */
 session_start();
-include("../../Dependencies/connection.php");
-require_once('../../../wordpress/wp-load.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/wordpress/wp-load.php');
 
 $error = "";
 $values = [

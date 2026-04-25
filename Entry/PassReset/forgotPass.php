@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../../../wordpress/wp-load.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/wordpress/wp-load.php');
 
 $error = "";
 $success_msg = "";

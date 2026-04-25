@@ -41,7 +41,7 @@ $userRole = $_SESSION['role'] ?? null; // null if not logged in
       <?php if ($userRole === 'subscriber'): ?>
         <div
           class="settings-item"
-          onclick="window.location.href ='../../Homepage/Student/PastEvents/pastEvents.php'"
+          onclick="window.location.href ='../../HomePage/Student/PastEvents/pastEvents.php'"
           data-translate="pastEvents">
           Past Events
         </div>
@@ -81,11 +81,11 @@ $userRole = $_SESSION['role'] ?? null; // null if not logged in
       } else {
         // Fallback if no history exists
         <?php if ($userRole === 'administrator'): ?>
-            window.location.href = '../../Homepage/Admin/admin.php';
+            window.location.href = '../../HomePage/Admin/admin.php';
         <?php elseif ($userRole === 'subscriber'): ?>
-            window.location.href = '../../Homepage/Student/StudentHomepage.php';
+            window.location.href = '../../HomePage/Student/StudentHomepage.php';
         <?php else: ?>
-            window.location.href = '../../Homepage/Visitors/Homepage.php';
+            window.location.href = '../../HomePage/Visitors/Homepage.php';
         <?php endif; ?>
       }
     }

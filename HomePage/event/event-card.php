@@ -36,11 +36,17 @@ if (!$post || $post->post_type !== 'post') {
 }
 
 // 4. Fetch Meta Data
-$major = get_post_meta($event_id, 'event_major', true);
+$major    = get_post_meta($event_id, 'event_major', true);
 $location = get_post_meta($event_id, 'event_location', true);
-$time = get_post_meta($event_id, 'event_time', true);
+$time     = get_post_meta($event_id, 'event_time', true);
 $requires_reg = get_post_meta($event_id, 'requires_registration', true);
-$image_url = get_post_meta($event_id, 'event_image_url', true);
+$image_url    = get_post_meta($event_id, 'event_image_url', true);
+
+// Arabic meta
+$name_ar     = get_post_meta($event_id, 'event_name_ar', true);
+$major_ar    = get_post_meta($event_id, 'event_major_ar', true);
+$location_ar = get_post_meta($event_id, 'event_location_ar', true);
+$time_ar     = get_post_meta($event_id, 'event_time_ar', true);
 if (empty($image_url))
   $image_url = "https://via.placeholder.com/450x250?text=No+Image";
 
@@ -126,12 +132,18 @@ if (isset($_POST['action']) && $_POST['action'] === 'delete') {
       
       <div class="info-row">
         <div class="info-label" data-translate="eventName">Event Name:</div>
-        <div class="info-value"><?php echo esc_html($post->post_title); ?></div>
+        <div class="info-value"
+          data-en="<?php echo esc_attr($post->post_title); ?>"
+          data-ar="<?php echo esc_attr($name_ar ?: $post->post_title); ?>"
+        ><?php echo esc_html($post->post_title); ?></div>
       </div>
-      
+
       <div class="info-row">
         <div class="info-label" data-translate="major">Major:</div>
-        <div class="info-value"><?php echo esc_html($major); ?></div>
+        <div class="info-value"
+          data-en="<?php echo esc_attr($major); ?>"
+          data-ar="<?php echo esc_attr($major_ar ?: $major); ?>"
+        ><?php echo esc_html($major); ?></div>
       </div>
     </div>
 
@@ -140,12 +152,18 @@ if (isset($_POST['action']) && $_POST['action'] === 'delete') {
       
       <div class="info-row">
         <div class="info-label" data-translate="location">Location:</div>
-        <div class="info-value"><?php echo esc_html($location); ?></div>
+        <div class="info-value"
+          data-en="<?php echo esc_attr($location); ?>"
+          data-ar="<?php echo esc_attr($location_ar ?: $location); ?>"
+        ><?php echo esc_html($location); ?></div>
       </div>
-      
+
       <div class="info-row">
         <div class="info-label" data-translate="time">Time:</div>
-        <div class="info-value"><?php echo esc_html($time); ?></div>
+        <div class="info-value"
+          data-en="<?php echo esc_attr($time); ?>"
+          data-ar="<?php echo esc_attr($time_ar ?: $time); ?>"
+        ><?php echo esc_html($time); ?></div>
       </div>
 
       <div class="buttons-row">

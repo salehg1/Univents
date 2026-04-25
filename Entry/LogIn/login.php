@@ -1,7 +1,6 @@
 <?php
 session_start();
-include("../../Dependencies/connection.php");
-require_once('../../../wordpress/wp-load.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/wordpress/wp-load.php');
 
 $error = "";
 $values = [
@@ -37,11 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $base_url = "http://" . $host . "/Univents";
 
             if (in_array('administrator', $roles) || in_array('admin', $roles)) {
-                $redirect_url = $base_url . '/Homepage/Admin/admin.php';
+                $redirect_url = $base_url . '/HomePage/Admin/admin.php';
             } elseif (in_array('subscriber', $roles)) {
-                $redirect_url = $base_url . '/Homepage/Student/StudentHomepage.php';
+                $redirect_url = $base_url . '/HomePage/Student/StudentHomepage.php';
             } else {
-                $redirect_url = $base_url . '/Homepage/Visitors/Homepage.php';
+                $redirect_url = $base_url . '/HomePage/Visitors/Homepage.php';
             }
 
             echo "<script>

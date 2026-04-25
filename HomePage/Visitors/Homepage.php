@@ -47,10 +47,12 @@ function get_events_by_type($type_slug)
         $image = "https://via.placeholder.com/450x250?text=No+Image";
 
       $events[] = array(
-        'id' => $id,
-        'name' => get_the_title(),
-        'time' => $time,
-        'image' => $image
+        'id'      => $id,
+        'name'    => get_the_title(),
+        'name_ar' => get_post_meta($id, 'event_name_ar', true),
+        'time'    => $time,
+        'time_ar' => get_post_meta($id, 'event_time_ar', true),
+        'image'   => $image
       );
     }
     wp_reset_postdata();
@@ -223,10 +225,14 @@ $colleges_list = get_events_by_type('colleges');
           const card = document.createElement("div");
           card.className = "event";
 
+          const lang = localStorage.getItem('preferredLang') || 'en';
+          const name = (lang === 'ar' && event.name_ar) ? event.name_ar : event.name;
+          const time = (lang === 'ar' && event.time_ar) ? event.time_ar : event.time;
+
           card.innerHTML = `
-            <img src="${event.image}" alt="${event.name}">
-            <p class="desc title">${event.name}</p>
-            <p class="desc date">${event.time}</p>
+            <img src="${event.image}" alt="${name}">
+            <p class="desc title">${name}</p>
+            <p class="desc date">${time}</p>
           `;
 
           card.onclick = () => {
@@ -253,12 +259,22 @@ $colleges_list = get_events_by_type('colleges');
       });
 
       render();
+      return render;
     }
 
-    createSlider("events", "eventsContainer", "evLeft", "evRight");
-    createSlider("activities", "activitiesSlider", "actLeft", "actRight");
-    createSlider("studentClubs", "studentSlider", "stuLeft", "stuRight");
-    createSlider("colleges", "collegesSlider", "colLeft", "colRight");
+    window._sliderRenders = window._sliderRenders || [];
+    function createSliderAndTrack(typeKey, containerId, leftBtnId, rightBtnId) {
+      const render = createSlider(typeKey, containerId, leftBtnId, rightBtnId);
+      if (render) window._sliderRenders.push(render);
+    }
+    createSliderAndTrack("events",       "eventsContainer", "evLeft",  "evRight");
+    createSliderAndTrack("activities",   "activitiesSlider","actLeft", "actRight");
+    createSliderAndTrack("studentClubs", "studentSlider",   "stuLeft", "stuRight");
+    createSliderAndTrack("colleges",     "collegesSlider",  "colLeft", "colRight");
+
+    document.addEventListener('languageChanged', () => {
+      (window._sliderRenders || []).forEach(fn => fn());
+    });
 
     function openLoginModal() {
       document.getElementById("loginModalOverlay").style.display = "flex";

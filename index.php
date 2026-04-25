@@ -7,6 +7,6 @@ exit();
 */
 session_start();
 
-header("Location: Homepage/Visitors/Homepage.php");
+header("Location: portal.php");
 exit();
 ?>

@@ -1,6 +1,6 @@
 <?php
 // Connect to WP
-require_once($_SERVER['DOCUMENT_ROOT'] . '../../wordpress/wp-load.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/wordpress/wp-load.php');
 
 // Security Check
 if (!is_user_logged_in()) {

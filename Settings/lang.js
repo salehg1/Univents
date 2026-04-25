@@ -320,4 +320,15 @@ function applyLanguage(lang) {
       input.placeholder = translations[lang][key];
     }
   });
+
+  // Swap dynamic event content (data-en / data-ar attributes)
+  document.querySelectorAll("[data-en]").forEach(el => {
+    el.textContent = (lang === 'ar' && el.dataset.ar) ? el.dataset.ar : el.dataset.en;
+  });
+
+  // Re-render any tracked sliders directly
+  (window._sliderRenders || []).forEach(fn => fn());
+
+  // Also dispatch event for any other components listening
+  document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
 }

@@ -19,11 +19,29 @@ if ($user_id === 0) {
     exit;
 }
 
-// 2. Fetch History Snapshots
-// This returns an array of arrays (Title, Time, Image are already inside!)
-$history_list = get_user_meta($user_id, 'attended_event_snapshot', false);
+// Demo mode: show fictional past events
+$is_demo = !empty($_SESSION['is_demo']);
 
-// Reverse to show newest first
+$demo_history = [
+    [
+        'title' => 'Web Development Bootcamp',
+        'time'  => 'Saturday, March 15, 2025',
+        'image' => 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=450&h=250&fit=crop&auto=format',
+    ],
+    [
+        'title' => 'Campus Blood Drive',
+        'time'  => 'Thursday, February 20, 2025',
+        'image' => 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=450&h=250&fit=crop&auto=format',
+    ],
+    [
+        'title' => 'Science & Technology Fair',
+        'time'  => 'Friday, January 10, 2025',
+        'image' => 'https://images.unsplash.com/photo-1532094349884-543290b4ba09?w=450&h=250&fit=crop&auto=format',
+    ],
+];
+
+// 2. Fetch History Snapshots
+$history_list = get_user_meta($user_id, 'attended_event_snapshot', false);
 $history_list = array_reverse($history_list);
 ?>
 
@@ -112,30 +130,26 @@ $history_list = array_reverse($history_list);
 
     <div class="pastEventContainer">
 
-        <?php if (empty($history_list)): ?>
+        <?php
+        $display_list = (!empty($history_list)) ? $history_list : ($is_demo ? $demo_history : []);
+        ?>
+
+        <?php if (empty($display_list)): ?>
 
             <div class="empty-message">
                 <p data-translate="noHistory">You haven't attended any events yet.</p>
-                <p style="font-size:0.9rem;" data-translate="adminApprovalNote">(Attendance must be approved by an Admin)
-                </p>
+                <p style="font-size:0.9rem;" data-translate="adminApprovalNote">(Attendance must be approved by an Admin)</p>
             </div>
 
         <?php else: ?>
 
-            <?php foreach ($history_list as $event):
-                // We use the data directly from the user meta array
-                $image_url = $event['image'];
-                $title = $event['title'];
-                $time = $event['time'];
-                ?>
+            <?php foreach ($display_list as $event): ?>
                 <div class="event-card">
-                    <img src="<?php echo esc_url($image_url); ?>" alt="Event Image">
-                    <p class="desc title"><?php echo esc_html($title); ?></p>
-                    <p class="desc date"><?php echo esc_html($time); ?></p>
-
+                    <img src="<?php echo esc_url($event['image']); ?>" alt="Event Image">
+                    <p class="desc title"><?php echo esc_html($event['title']); ?></p>
+                    <p class="desc date"><?php echo esc_html($event['time']); ?></p>
                     <span style="color:green; font-size:0.8rem; font-weight:bold;">✔ Attended</span>
                 </div>
-
             <?php endforeach; ?>
 
         <?php endif; ?>

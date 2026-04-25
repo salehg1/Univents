@@ -21,25 +21,28 @@ if (is_user_logged_in()) {
 }
 
 if ($user_id == 0) {
-    // Not logged in? Redirect to login page
-    header("Location: ../../LoginPages/login.php");
+    header("Location: ../../Entry/LogIn/login.php");
     exit;
 }
 
-// 3. Fetch User Object
-$user_info = get_userdata($user_id);
+// Demo mode: show fictional student profile
+if (!empty($_SESSION['is_demo'])) {
+    $display_name  = 'Ahmed Al-Rashidi';
+    $display_email = 'ahmed.rashidi@taibahu.edu.sa';
+    $display_major = 'Computer Science';
+    $display_id    = '4412089';
+} else {
+    // 3. Fetch User Object
+    $user_info = get_userdata($user_id);
 
-// 4. Fetch Extra Fields (Meta Data)
-// Note: These will only show if you saved them during Registration.
-// If not, we show "Not Specified" or the Username.
-$major = get_user_meta($user_id, 'major', true);
-$student_id_meta = get_user_meta($user_id, 'student_id', true); 
+    $major          = get_user_meta($user_id, 'major', true);
+    $student_id_meta = get_user_meta($user_id, 'student_id', true);
 
-// Fallback logic
-$display_name = $user_info->display_name;
-$display_email = $user_info->user_email;
-$display_major = !empty($major) ? $major : "Not Specified";
-$display_id = !empty($student_id_meta) ? $student_id_meta : $user_info->user_login; // Fallback to username
+    $display_name  = $user_info->display_name;
+    $display_email = $user_info->user_email;
+    $display_major = !empty($major) ? $major : "Not Specified";
+    $display_id    = !empty($student_id_meta) ? $student_id_meta : $user_info->user_login;
+}
 
 ?>
 

@@ -66,8 +66,7 @@ function createSlider(typeKey, containerId, leftBtnId, rightBtnId) {
 
     slice.forEach(event => {
       const card = document.createElement("div");
-      
-      // Assign class based on type to keep CSS styling
+
       if (typeKey === "events") card.className = "event";
       else if (typeKey === "activities") card.className = "Activities";
       else if (typeKey === "studentClubs") card.className = "Student";
@@ -75,10 +74,14 @@ function createSlider(typeKey, containerId, leftBtnId, rightBtnId) {
 
       card.style.cursor = "pointer";
 
+      const lang = document.documentElement.lang || localStorage.getItem('preferredLang') || 'en';
+      const name = (lang === 'ar' && event.name_ar) ? event.name_ar : event.name;
+      const time = (lang === 'ar' && event.time_ar) ? event.time_ar : event.time;
+
       card.innerHTML = `
-        <img src="${event.image}" alt="${event.name}">
-        <p class="desc title">${event.name}</p>
-        <p class="desc date">${event.time}</p>
+        <img src="${event.image}" alt="${name}">
+        <p class="desc title">${name}</p>
+        <p class="desc date">${time}</p>
       `;
 
       // FIX: Correct path to event-card.php using ID
@@ -105,10 +108,20 @@ function createSlider(typeKey, containerId, leftBtnId, rightBtnId) {
   });
 
   render();
+  return render;
 }
 
-// Initialize Sliders
-createSlider("events", "eventsContainer", "evLeft", "evRight");
-createSlider("activities", "activitiesSlider", "actLeft", "actRight");
-createSlider("studentClubs", "studentSlider", "stuLeft", "stuRight");
-createSlider("colleges", "collegesSlider", "colLeft", "colRight");
+// Initialize Sliders — store render functions for language re-render
+window._sliderRenders = window._sliderRenders || [];
+function createSliderAndTrack(typeKey, containerId, leftBtnId, rightBtnId) {
+  const render = createSlider(typeKey, containerId, leftBtnId, rightBtnId);
+  if (render) window._sliderRenders.push(render);
+}
+createSliderAndTrack("events",       "eventsContainer", "evLeft",  "evRight");
+createSliderAndTrack("activities",   "activitiesSlider","actLeft", "actRight");
+createSliderAndTrack("studentClubs", "studentSlider",   "stuLeft", "stuRight");
+createSliderAndTrack("colleges",     "collegesSlider",  "colLeft", "colRight");
+
+document.addEventListener('languageChanged', () => {
+  (window._sliderRenders || []).forEach(fn => fn());
+});

@@ -3,7 +3,7 @@
  * reset-final.php
  * Verifies the key and sets the new password.
  */
-require_once('../../../wordpress/wp-load.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/wordpress/wp-load.php');
 
 $key = $_GET['key'] ?? '';
 $login = $_GET['login'] ?? '';
